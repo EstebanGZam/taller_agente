@@ -1,0 +1,161 @@
+[
+ {
+  "id": "R01",
+  "pregunta": "¿Cuál es el índice de liquidez de nuestra empresa?",
+  "respuesta_esperada": "1.7",
+  "herramientas_esperadas": [
+   "calcular_indicadores"
+  ],
+  "dificultad": "fácil"
+ },
+ {
+  "id": "R02",
+  "pregunta": "¿Cuál es nuestro nivel de endeudamiento?",
+  "respuesta_esperada": "62.0 %",
+  "herramientas_esperadas": [
+   "calcular_indicadores"
+  ],
+  "dificultad": "fácil"
+ },
+ {
+  "id": "R03",
+  "pregunta": "¿Cuál es nuestra razón de cobertura de intereses?",
+  "respuesta_esperada": "2.5",
+  "herramientas_esperadas": [
+   "calcular_indicadores"
+  ],
+  "dificultad": "fácil"
+ },
+ {
+  "id": "R04",
+  "pregunta": "¿Cuánto capital de trabajo tenemos?",
+  "respuesta_esperada": "$182.000.000",
+  "herramientas_esperadas": [
+   "calcular_indicadores"
+  ],
+  "dificultad": "fácil"
+ },
+ {
+  "id": "R05",
+  "pregunta": "¿Qué códigos UNSPSC tenemos registrados en el RUP?",
+  "respuesta_esperada": "72141000, 81101500, 72101500, 72152700, 72102900",
+  "herramientas_esperadas": [
+   "consultar_empresa"
+  ],
+  "dificultad": "fácil"
+ },
+ {
+  "id": "R06",
+  "pregunta": "¿Cuánto suma nuestra experiencia en contratos clasificados con el código UNSPSC 81101500?",
+  "respuesta_esperada": "$950.000.000 (contratos EXP-1 y EXP-2)",
+  "herramientas_esperadas": [
+   "consultar_empresa"
+  ],
+  "dificultad": "media"
+ },
+ {
+  "id": "R07",
+  "pregunta": "¿Cuántos procesos de contratación directa hay en la muestra?",
+  "respuesta_esperada": "9",
+  "herramientas_esperadas": [
+   "buscar_procesos"
+  ],
+  "dificultad": "fácil"
+ },
+ {
+  "id": "R08",
+  "pregunta": "¿Cuál es el proceso con mayor presupuesto oficial y cuánto es?",
+  "respuesta_esperada": "LP-DT-CAU-003-2019 de INVIAS, con $53.520.784.298",
+  "herramientas_esperadas": [
+   "buscar_procesos"
+  ],
+  "dificultad": "media"
+ },
+ {
+  "id": "R09",
+  "pregunta": "¿Qué procesos de licitación pública hay?",
+  "respuesta_esperada": "FDLS-LP-098-2019 y LP-DT-CAU-003-2019",
+  "herramientas_esperadas": [
+   "buscar_procesos"
+  ],
+  "dificultad": "fácil"
+ },
+ {
+  "id": "R10",
+  "pregunta": "¿Cuál es el presupuesto promedio de los procesos de entidades de Antioquia?",
+  "respuesta_esperada": "$120.120.571 (3 procesos)",
+  "herramientas_esperadas": [
+   "buscar_procesos"
+  ],
+  "dificultad": "media"
+ },
+ {
+  "id": "R11",
+  "pregunta": "¿Cuántos procesos hay de entidades de Santander y cuál es el más reciente?",
+  "respuesta_esperada": "2; el más reciente es FLO-INFRA-SA-MC-007-2025 (2025-12-30)",
+  "herramientas_esperadas": [
+   "buscar_procesos"
+  ],
+  "dificultad": "media"
+ },
+ {
+  "id": "R12",
+  "pregunta": "¿Qué proceso de INVIAS corresponde a la Dirección Territorial Cauca?",
+  "respuesta_esperada": "LP-DT-CAU-003-2019. Aunque la entidad aparece registrada en Bogotá, la unidad de contratación es la Dirección Territorial Cauca, en Cali",
+  "herramientas_esperadas": [
+   "buscar_procesos"
+  ],
+  "dificultad": "difícil"
+ },
+ {
+  "id": "R13",
+  "pregunta": "¿Cuántas ofertas recibió el proceso LP-DT-CAU-003-2019 y quién lo ganó?",
+  "respuesta_esperada": "51 respuestas; adjudicado a COOPERATIVA DE TRABAJO ASOCIADO SIGLO XXI por $1.217.527.123",
+  "herramientas_esperadas": [
+   "buscar_procesos"
+  ],
+  "dificultad": "media"
+ },
+ {
+  "id": "R14",
+  "pregunta": "¿Cuál es el plazo de ejecución del proceso SA-004-2023?",
+  "respuesta_esperada": "El plazo registrado es 0 días, lo que es un dato inconsistente o no disponible; hay que verificarlo en el pliego",
+  "herramientas_esperadas": [
+   "buscar_procesos"
+  ],
+  "dificultad": "difícil"
+ },
+ {
+  "id": "R15",
+  "pregunta": "¿Cuál es el presupuesto del proceso de Agrosavia?",
+  "respuesta_esperada": "Aparece registrado en $0; el presupuesto no está disponible en los datos abiertos",
+  "herramientas_esperadas": [
+   "buscar_procesos"
+  ],
+  "dificultad": "difícil"
+ },
+ {
+  "id": "R16",
+  "pregunta": "¿Nuestro capital de trabajo alcanza el 40 % del presupuesto del proceso FLO-INFRA-SA-MC-007-2025?",
+  "respuesta_esperada": "Sí: el 40 % del presupuesto ($305.813.941) es $122.325.576 y nuestro capital de trabajo es $182.000.000, el 59.5 % del presupuesto",
+  "herramientas_esperadas": [
+   "buscar_procesos",
+   "calcular_indicadores"
+  ],
+  "dificultad": "difícil"
+ },
+ {
+  "id": "R17",
+  "pregunta": "¿Qué es el SECOP II?",
+  "respuesta_esperada": "La plataforma transaccional en línea del sistema de compra pública de Colombia, administrada por Colombia Compra Eficiente, donde las entidades estatales adelantan sus procesos de contratación",
+  "herramientas_esperadas": [],
+  "dificultad": "sin herramientas"
+ },
+ {
+  "id": "R18",
+  "pregunta": "¿Qué diferencia hay entre una licitación pública y una contratación directa?",
+  "respuesta_esperada": "La licitación pública es la modalidad general y competitiva, abierta a cualquier proponente que cumpla los requisitos; la contratación directa permite escoger al contratista sin convocatoria competitiva, solo en las causales que define la ley",
+  "herramientas_esperadas": [],
+  "dificultad": "sin herramientas"
+ }
+]

@@ -1,0 +1,77 @@
+{
+ "razon_social": "Ingeniería y Mantenimiento del Pacífico S.A.S. (empresa ficticia)",
+ "nit": "901999999-0 (ficticio)",
+ "ciudad": "Cali",
+ "departamento": "Valle del Cauca",
+ "tamano": "Pequeña empresa",
+ "actividad": "Obras civiles, mantenimiento de infraestructura vial y adecuación de edificaciones",
+ "rup": {
+  "vigente": true,
+  "fecha_renovacion": "2026-03-15",
+  "codigos_unspsc": [
+   "72141000",
+   "81101500",
+   "72101500",
+   "72152700",
+   "72102900"
+  ]
+ },
+ "estados_financieros": {
+  "corte": "2025-12-31",
+  "moneda": "COP",
+  "activo_corriente": 442000000,
+  "pasivo_corriente": 260000000,
+  "activo_total": 1150000000,
+  "pasivo_total": 713000000,
+  "patrimonio": 437000000,
+  "utilidad_operacional": 46000000,
+  "gastos_de_intereses": 18400000,
+  "utilidad_neta": 21000000
+ },
+ "experiencia": [
+  {
+   "id": "EXP-1",
+   "contratante": "Gobernación del Valle del Cauca",
+   "objeto": "Mantenimiento y rehabilitación de puentes vehiculares en vías secundarias",
+   "anio": 2022,
+   "valor": 520000000,
+   "codigos_unspsc": [
+    "81101500",
+    "72141000"
+   ]
+  },
+  {
+   "id": "EXP-2",
+   "contratante": "Municipio de Jamundí",
+   "objeto": "Construcción de obras de drenaje y conservación de vías rurales",
+   "anio": 2023,
+   "valor": 430000000,
+   "codigos_unspsc": [
+    "72141000",
+    "81101500"
+   ]
+  },
+  {
+   "id": "EXP-3",
+   "contratante": "Municipio de Palmira",
+   "objeto": "Adecuación y mantenimiento de la sede administrativa municipal",
+   "anio": 2024,
+   "valor": 280000000,
+   "codigos_unspsc": [
+    "72101500",
+    "72152700"
+   ]
+  },
+  {
+   "id": "EXP-4",
+   "contratante": "Secretaría de Educación de Cali",
+   "objeto": "Mantenimiento de instalaciones de sedes educativas oficiales",
+   "anio": 2021,
+   "valor": 150000000,
+   "codigos_unspsc": [
+    "72101500"
+   ]
+  }
+ ],
+ "nota": "Datos ficticios para uso académico. Diseñados para que la empresa cumpla los requisitos de algunos procesos de la muestra y no los de otros."
+}
