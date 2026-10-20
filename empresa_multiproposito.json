@@ -1,0 +1,129 @@
+{
+ "razon_social": "Soluciones Integrales de Infraestructura del Valle S.A.S. (empresa ficticia)",
+ "nit": "901888888-1 (ficticio)",
+ "ciudad": "Cali",
+ "departamento": "Valle del Cauca",
+ "tamano": "Mediana empresa",
+ "actividad": "Obras civiles y de puentes, adecuación y mantenimiento de edificaciones, mantenimiento de equipos, y suministro de equipos de bombeo, elementos para piscinas y elementos de protección personal",
+ "rup": {
+  "vigente": true,
+  "fecha_renovacion": "2026-03-20",
+  "codigos_unspsc": [
+   "81101500",
+   "72141000",
+   "72101500",
+   "72152700",
+   "72102900",
+   "42192600",
+   "40151500",
+   "46181500"
+  ]
+ },
+ "estados_financieros": {
+  "corte": "2025-12-31",
+  "moneda": "COP",
+  "activo_corriente": 727000000,
+  "pasivo_corriente": 346000000,
+  "activo_total": 1800000000,
+  "pasivo_total": 990000000,
+  "patrimonio": 810000000,
+  "utilidad_operacional": 126000000,
+  "gastos_de_intereses": 39375000,
+  "utilidad_neta": 68000000
+ },
+ "experiencia": [
+  {
+   "id": "EXP-1",
+   "contratante": "Gobernación del Valle del Cauca",
+   "objeto": "Rehabilitación y mantenimiento de puentes vehiculares en vías secundarias",
+   "anio": 2022,
+   "valor": 610000000,
+   "codigos_unspsc": [
+    "81101500",
+    "72141000"
+   ]
+  },
+  {
+   "id": "EXP-2",
+   "contratante": "Municipio de Yumbo",
+   "objeto": "Conservación y estabilización de puentes peatonales sobre corrientes de agua",
+   "anio": 2024,
+   "valor": 340000000,
+   "codigos_unspsc": [
+    "81101500"
+   ]
+  },
+  {
+   "id": "EXP-3",
+   "contratante": "Municipio de Palmira",
+   "objeto": "Adecuación y mantenimiento de la sede administrativa municipal",
+   "anio": 2024,
+   "valor": 260000000,
+   "codigos_unspsc": [
+    "72101500",
+    "72152700"
+   ]
+  },
+  {
+   "id": "EXP-4",
+   "contratante": "Institución universitaria pública del Valle",
+   "objeto": "Mantenimiento locativo de edificaciones académicas",
+   "anio": 2023,
+   "valor": 120000000,
+   "codigos_unspsc": [
+    "72101500"
+   ]
+  },
+  {
+   "id": "EXP-5",
+   "contratante": "Secretaría del Deporte y la Recreación de Cali",
+   "objeto": "Suministro de equipos, herramientas y elementos para el mantenimiento de piscinas",
+   "anio": 2023,
+   "valor": 290000000,
+   "codigos_unspsc": [
+    "42192600"
+   ]
+  },
+  {
+   "id": "EXP-6",
+   "contratante": "Instituto departamental de deportes del Valle",
+   "objeto": "Suministro de elementos de seguridad y operación para escenarios acuáticos",
+   "anio": 2025,
+   "valor": 160000000,
+   "codigos_unspsc": [
+    "42192600"
+   ]
+  },
+  {
+   "id": "EXP-7",
+   "contratante": "Empresa Social del Estado de primer nivel (Valle)",
+   "objeto": "Mantenimiento preventivo y correctivo de equipos biomédicos menores",
+   "anio": 2024,
+   "valor": 45000000,
+   "codigos_unspsc": [
+    "72102900"
+   ]
+  },
+  {
+   "id": "EXP-8",
+   "contratante": "Empresa de acueducto departamental",
+   "objeto": "Suministro e instalación de electrobombas centrífugas trifásicas",
+   "anio": 2023,
+   "valor": 38000000,
+   "codigos_unspsc": [
+    "40151500"
+   ]
+  },
+  {
+   "id": "EXP-9",
+   "contratante": "Municipio de Candelaria",
+   "objeto": "Suministro de elementos de protección personal para personal operativo",
+   "anio": 2025,
+   "valor": 52000000,
+   "codigos_unspsc": [
+    "46181500"
+   ]
+  }
+ ],
+ "nota": "Datos ficticios para uso académico. Diseñada para cumplir los requisitos de seis procesos de la muestra y no cumplir los de dos."
+}
