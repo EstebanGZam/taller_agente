@@ -39,7 +39,11 @@ class Requirements(BaseModel):
     publication_date: str | None = Field(None, description="Publication date in YYYY-MM-DD format.")
     required_profile: str | None = None
     is_direct_contracting: bool = Field(
-        description="No competitive call, including inter-administrative hiring."
+        description=(
+            "True when there is no competitive call: the entity hires a specific contractor directly, "
+            "including inter-administrative contracts. Typical signs: a required profile for a person, "
+            "no offer-submission stage and no selection criterion. Applies to special-regime processes too."
+        )
     )
     is_asset_sale: bool = Field(False, description="The entity SELLS assets, rather than buying supplies.")
     verifies_financial_capacity: bool = Field(
@@ -74,6 +78,9 @@ Do not invent values: a threshold not required by the tender is null, not missin
 Use 65 for 65%, and 0.05 for a 5% return. Do not confuse guarantees with experience requirements.
 Use COP for budgets; preserve explicit $0 as 0 and record a warning. Extract publication date YYYY-MM-DD.
 Special-regime procurement may invite offers or hire directly; determine which from the document.
+A process is competitive only if it invites offers: a schedule with an offer-submission or closing date,
+enabling requirements for bidders, or a selection criterion among offers. A document that only describes
+the profile and obligations of the person to be hired is direct contracting, whatever legal ground it cites.
 Extract UNSPSC codes only from the experience requirements, never infer them from the principal code.
 Return the schema fields without adding external requirements. Any natural-language answer must be in Spanish.
 """

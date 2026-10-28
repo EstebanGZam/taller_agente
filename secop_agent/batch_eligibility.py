@@ -154,9 +154,12 @@ def analyze_batch(
     complete = True
     for number, (path, (agent, result)) in enumerate(zip(paths, pairs, strict=True), 1):
         expected = key.get(file_digest(path))
+        requirements = agent.requirements if agent is not None else None
         result = {
             **result,
             "n": number,
+            # Kept in the JSON report so every verdict can be audited against what was extracted.
+            "requirements": requirements,
             "expected_verdict": expected["expected_verdict"] if expected else None,
             "correct": result["verdict"] == expected["expected_verdict"] if expected else None,
         }
@@ -167,7 +170,6 @@ def analyze_batch(
         complete = complete and successful and agent.cost_complete
         row = {column: result.get(column) for column in CSV_COLUMNS}
         row.update(result["metrics"])
-        requirements = agent.requirements if agent is not None else None
         row.update({field: (requirements or {}).get(field) for field in ("modality", "official_budget")})
         row["tools_used"] = ", ".join(result["tools_used"])
         rows.append(row)
