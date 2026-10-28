@@ -5,13 +5,13 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from langchain.chat_models import init_chat_model
 from langchain_core.runnables import RunnableConfig
 from langsmith import traceable
 from pydantic import BaseModel, ConfigDict, Field
 from pypdf import PdfReader
 
 from secop_agent import settings
+from secop_agent.settings import chat_model
 
 
 def read_pdf(path: str | Path) -> str:
@@ -82,8 +82,8 @@ Return the schema fields without adding external requirements. Any natural-langu
 @traceable(name="extract_requirements", tags=["eligibility", "extraction"])
 def extract_requirements(text: str, model: str | None = None, config: RunnableConfig | None = None) -> dict:
     """Extract structured requirements, propagating callbacks into the model call."""
-    llm = init_chat_model(normalize_model(model), max_tokens=2400)
-    result = llm.with_structured_output(Requirements, method="json_schema").invoke(
+    llm = chat_model(normalize_model(model), max_tokens=2400)
+    result = llm.with_structured_output(Requirements, method=settings.STRUCTURED_OUTPUT_METHOD).invoke(
         [
             {"role": "system", "content": EXTRACTION_PROMPT},
             {"role": "user", "content": "<pdf_document>\n" + text + "\n</pdf_document>"},
@@ -106,12 +106,12 @@ def select_similar_contracts(
     """Select similar objects, without judging amounts or deciding eligibility."""
     if not purpose or not experience:
         return []
-    llm = init_chat_model(normalize_model(model), max_tokens=600)
+    llm = chat_model(normalize_model(model), max_tokens=600)
     data = {
         "process_purpose": purpose,
         "contracts": [{"id": contract["id"], "purpose": contract["objeto"]} for contract in experience],
     }
-    result = llm.with_structured_output(SimilarContracts, method="json_schema").invoke(
+    result = llm.with_structured_output(SimilarContracts, method=settings.STRUCTURED_OUTPUT_METHOD).invoke(
         [
             {
                 "role": "system",

@@ -26,7 +26,7 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
-from secop_agent import qa_agent
+from secop_agent import qa_agent, settings
 from secop_agent.costs import CostTracker
 from secop_agent.procurement_data import DATA_MODE_ENV, SAMPLE_MODE, data_mode
 from secop_agent.settings import (
@@ -141,12 +141,9 @@ def get_judge() -> Any:
     """The judge model with structured output, built once."""
     global _judge
     if _judge is None:
-        from langchain.chat_models import init_chat_model
-
-        # No temperature: Claude Haiku 5.5 rejects it. json_schema avoids forced tool choice.
         # include_raw keeps the raw reply so an unparsable verdict can still be read as text.
-        _judge = init_chat_model(judge_model()).with_structured_output(
-            JudgeVerdict, method="json_schema", include_raw=True
+        _judge = settings.chat_model(judge_model(), max_tokens=300).with_structured_output(
+            JudgeVerdict, method=settings.STRUCTURED_OUTPUT_METHOD, include_raw=True
         )
     return _judge
 

@@ -8,6 +8,8 @@ import subprocess
 from pathlib import Path
 
 from dotenv import load_dotenv
+from langchain.chat_models import init_chat_model
+from langchain_core.language_models import BaseChatModel
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +26,14 @@ ELIGIBILITY_KEY_FILE = DATA_DIR / "eligibility_key.json"
 
 DEFAULT_MODEL = "anthropic:claude-haiku-5-5"
 
+# A hung request must fail loudly instead of stalling a batch of 20 tenders.
+MODEL_TIMEOUT_S = 60
+MODEL_MAX_RETRIES = 2
+# `json_schema` requests hung for over 90 s on Claude Haiku 5.5 (measured 2026-10-28), while
+# `function_calling` returned in about 7 s. langchain-anthropic only forces tool choice on models
+# that support it, so this method is also safe for Claude Sonnet 5.5.
+STRUCTURED_OUTPUT_METHOD = "function_calling"
+
 # LangSmith stops recording traces when these are set together with LANGSMITH_PROJECT.
 _CONFLICTING_LANGSMITH_VARS = ("LANGSMITH_AGENT_ID", "LANGSMITH_AGENT_ENVIRONMENT")
 
@@ -38,6 +48,19 @@ def load_environment() -> None:
 
 def model_from_env() -> str:
     return os.getenv("MODEL", DEFAULT_MODEL)
+
+
+def chat_model(model: str | None = None, *, max_tokens: int) -> BaseChatModel:
+    """The single place where chat models are built.
+
+    Never passes temperature/top_p/top_k: Claude Haiku 5.5 and API version 2026-10-21 reject them.
+    """
+    return init_chat_model(
+        model or model_from_env(),
+        max_tokens=max_tokens,
+        timeout=MODEL_TIMEOUT_S,
+        max_retries=MODEL_MAX_RETRIES,
+    )
 
 
 def team_name() -> str:

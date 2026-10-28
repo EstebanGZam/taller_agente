@@ -24,6 +24,7 @@ from langchain.agents import create_agent
 from langchain.tools import tool
 
 from secop_agent import procurement_data as data
+from secop_agent import settings
 from secop_agent.settings import load_environment, model_from_env
 
 logger = logging.getLogger(__name__)
@@ -352,9 +353,11 @@ def get_agent(config: str | None = None, model: str | None = None) -> Any:
     key = (config, model)
     if key not in _AGENT_CACHE:
         logger.info("Building Q&A agent config=%s model=%s", config, model)
-        # No temperature/top_p/top_k: Claude Haiku 5.5 rejects them with a 400 error.
         _AGENT_CACHE[key] = create_agent(
-            model, tools=TOOLS[config], system_prompt=PROMPTS[config], name=f"secop-qa-agent-{config}"
+            settings.chat_model(model, max_tokens=1024),
+            tools=TOOLS[config],
+            system_prompt=PROMPTS[config],
+            name=f"secop-qa-agent-{config}",
         )
     return _AGENT_CACHE[key]
 

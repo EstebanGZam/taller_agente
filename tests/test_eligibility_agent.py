@@ -91,8 +91,8 @@ def test_callbacks_cover_extraction_and_similarity(monkeypatch):
         assert 0 < kwargs["max_tokens"] <= 2400
         return next(models)
 
-    monkeypatch.setattr(eligibility_agent, "init_chat_model", initialize_agent)
-    monkeypatch.setattr(tender_documents, "init_chat_model", initialize_extractor)
+    monkeypatch.setattr(eligibility_agent, "chat_model", initialize_agent)
+    monkeypatch.setattr(tender_documents, "chat_model", initialize_extractor)
     result = eligibility_agent.EligibilityAgent(settings.COURSE_DATA_DIR / KEY[6]["file"], COMPANY).analyze()
     assert result["verdict"] == "ELIGIBLE"
     assert result["metrics"]["model_calls"] == 5

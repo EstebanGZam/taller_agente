@@ -13,7 +13,6 @@ from pathlib import Path
 from typing import Any
 
 from langchain.agents import create_agent
-from langchain.chat_models import init_chat_model
 from langchain.tools import tool
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.runnables import RunnableConfig
@@ -22,6 +21,7 @@ from langsmith import get_current_run_tree, traceable
 
 from secop_agent import eligibility, procurement_data, tender_documents
 from secop_agent.costs import CostTracker
+from secop_agent.settings import chat_model
 
 logger = logging.getLogger(__name__)
 
@@ -142,7 +142,7 @@ class EligibilityAgent:
         if self.agent is None:
             if not os.getenv("ANTHROPIC_API_KEY"):
                 raise ValueError("ANTHROPIC_API_KEY is missing; configure it in the environment or .env.")
-            llm = init_chat_model(self.model, max_tokens=1400)
+            llm = chat_model(self.model, max_tokens=1400)
             self.agent = create_agent(
                 llm, tools=self.tools, system_prompt=SYSTEM_PROMPT, checkpointer=self.memory
             )

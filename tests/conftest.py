@@ -53,7 +53,7 @@ class FakeModel(BaseChatModel):
 
 class FakeStructuredModel(FakeModel):
     def with_structured_output(self, schema, *, method, **kwargs):
-        assert method == "json_schema"
+        assert method == settings.STRUCTURED_OUTPUT_METHOD
         return self | RunnableLambda(lambda message: schema.model_validate_json(message.content))
 
 
@@ -103,7 +103,7 @@ def fake_extraction(monkeypatch):
     monkeypatch.setenv("ANTHROPIC_API_KEY", "fake-offline-key")
     monkeypatch.setattr(
         eligibility_agent,
-        "init_chat_model",
+        "chat_model",
         lambda *args, **kwargs: FakeModel(
             responses=[message("No consulté herramientas."), message("Seguimiento con memoria.")]
         ),
