@@ -4,7 +4,7 @@ import json
 from types import SimpleNamespace
 
 import pytest
-from conftest import COMPANY, KEY, FakeStructuredModel, full_requirements, message
+from conftest import COMPANY, KEY, FakeStructuredModel, full_requirements, message, similarity_reply
 from langchain_core.runnables import RunnableLambda
 
 from secop_agent import settings, tender_documents
@@ -40,7 +40,9 @@ def test_structured_schema_callbacks_and_model_options(monkeypatch):
     models = iter(
         [
             FakeStructuredModel(responses=[message(json.dumps(full_requirements(KEY[6])))]),
-            FakeStructuredModel(responses=[message(json.dumps({"ids": ["EXP-9", "unknown", "EXP-9"]}))]),
+            FakeStructuredModel(
+                responses=[similarity_reply(["EXP-9", "unknown", "EXP-9"], unrelated=["EXP-1"])]
+            ),
         ]
     )
 

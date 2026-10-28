@@ -66,6 +66,13 @@ def message(text="", tools=None):
     )
 
 
+def similarity_reply(similar, unrelated=()):
+    """Fake structured reply of the similar-contract judge: one judgment per contract ID."""
+    judgments = [{"id": i, "same_nature": True, "reason": "mismo objeto"} for i in similar]
+    judgments += [{"id": i, "same_nature": False, "reason": "otro objeto"} for i in unrelated]
+    return message(json.dumps({"judgments": judgments}))
+
+
 def tool_call(name, arguments=None):
     return {"name": name, "args": arguments or {}, "id": "id-" + name, "type": "tool_call"}
 

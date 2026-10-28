@@ -16,6 +16,7 @@ from conftest import (
     FakeStructuredModel,
     full_requirements,
     message,
+    similarity_reply,
     tool_call,
 )
 from langsmith import get_current_run_tree, traceable, tracing_context
@@ -78,7 +79,7 @@ def test_callbacks_cover_extraction_and_similarity(monkeypatch):
     models = iter(
         [
             FakeStructuredModel(responses=[message(json.dumps(full_requirements(KEY[6])))]),
-            FakeStructuredModel(responses=[message(json.dumps({"ids": ["EXP-9"]}))]),
+            FakeStructuredModel(responses=[similarity_reply(["EXP-9"], unrelated=["EXP-1"])]),
         ]
     )
 

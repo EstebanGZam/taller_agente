@@ -48,6 +48,11 @@ class Check:
     detail: str = ""
 
 
+def _display(value: Any) -> Any:
+    """Round ratios for reports only; decisions always use the unrounded value."""
+    return round(value, 3) if isinstance(value, float) else value
+
+
 def _is_number(value: Any) -> bool:
     return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
 
@@ -153,7 +158,7 @@ def _financial_checks(requirements: dict, indicators: dict) -> list[Check]:
             if maximum
             else value >= threshold
         )
-        checks.append(Check(name, f"{'≤' if maximum else '≥'} {threshold}", value, passed))
+        checks.append(Check(name, f"{'≤' if maximum else '≥'} {threshold}", _display(value), passed))
     percentage = requirements.get("min_working_capital_pct_of_budget")
     if percentage is not None:
         budget = requirements.get("official_budget")
