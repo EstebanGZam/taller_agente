@@ -12,10 +12,10 @@ from secop_agent import settings
 from secop_agent.eligibility import (
     Check,
     Verdict,
-    _compute_financial_indicators,
     validate_company,
     verify_requirements,
 )
+from secop_agent.procurement_data import compute_financial_indicators
 
 pytestmark = pytest.mark.usefixtures("offline")
 
@@ -42,7 +42,7 @@ def test_verdict_counts_and_structured_types():
 
 
 def test_multipurpose_indicators():
-    indicators = _compute_financial_indicators(COMPANY, 600_000_000)
+    indicators = compute_financial_indicators(COMPANY, 600_000_000)
     assert indicators == {
         "liquidity_ratio": 2.1,
         "debt_ratio_pct": 55.0,
@@ -120,7 +120,7 @@ def test_experience_without_selection_criterion_is_undetermined():
 def test_undetermined_coverage_and_zero_divisors():
     company = copy.deepcopy(COMPANY)
     company["estados_financieros"]["gastos_de_intereses"] = 0
-    assert _compute_financial_indicators(company, None)["interest_coverage_ratio"] == "undetermined"
+    assert compute_financial_indicators(company, None)["interest_coverage_ratio"] == "undetermined"
     assert verify_requirements(full_requirements(KEY[10]), company)["verdict"] == "ELIGIBLE"
     company["estados_financieros"]["pasivo_corriente"] = 0
     assert verify_requirements(full_requirements(KEY[10]), company)["verdict"] == "MANUAL_REVIEW"

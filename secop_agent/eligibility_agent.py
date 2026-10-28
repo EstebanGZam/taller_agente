@@ -20,7 +20,7 @@ from langchain_core.runnables import RunnableConfig
 from langgraph.checkpoint.memory import InMemorySaver
 from langsmith import get_current_run_tree, traceable
 
-from secop_agent import eligibility, tender_documents
+from secop_agent import eligibility, procurement_data, tender_documents
 from secop_agent.costs import CostTracker
 
 logger = logging.getLogger(__name__)
@@ -134,7 +134,7 @@ class EligibilityAgent:
             """Compute company RUP indicators, optionally relative to a process budget in COP."""
             with self._lock:
                 self.tools_used.append("compute_financial_indicators")
-                return eligibility._compute_financial_indicators(self.company, process_budget)
+                return procurement_data.compute_financial_indicators(self.company, process_budget)
 
         return [extract, verify, get_company_profile, compute_financial_indicators]
 

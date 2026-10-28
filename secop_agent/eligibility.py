@@ -7,6 +7,8 @@ from dataclasses import asdict, dataclass
 from enum import Enum
 from typing import Any
 
+from secop_agent.procurement_data import compute_financial_indicators
+
 # Course reference table in COP, not a live source of wage data.
 SMMLV = {
     2018: 781_242,
@@ -97,6 +99,8 @@ def validate_company(company: dict) -> list[str]:
 
 
 def _raw_financial_indicators(company: dict, process_budget: float | None) -> dict:
+    """Unrounded ratios used for pass/fail decisions (rounding 1.596 to 1.6 must not pass a
+    >= 1.6 threshold). Reports use the rounded `compute_financial_indicators`."""
     financials = company["estados_financieros"]
 
     def ratio(numerator: str, denominator: str) -> float | None:
@@ -122,25 +126,6 @@ def _raw_financial_indicators(company: dict, process_budget: float | None) -> di
     if process_budget:
         indicators["working_capital_pct_of_budget"] = 100 * indicators["working_capital"] / process_budget
     return indicators
-
-
-# TODO(merge): use procurement_data.compute_financial_indicators
-# Keep raw ratios above for decisions; the shared helper rounds only for reporting.
-def _compute_financial_indicators(company: dict, process_budget: float | None) -> dict:
-    """Match the shared RUP indicator keys and the course's display rounding."""
-    indicators = _raw_financial_indicators(company, process_budget)
-    decimals = {
-        "liquidity_ratio": 2,
-        "debt_ratio_pct": 1,
-        "interest_coverage_ratio": 2,
-        "return_on_equity": 3,
-        "return_on_assets": 3,
-        "working_capital_pct_of_budget": 1,
-    }
-    return {
-        key: round(value, decimals[key]) if key in decimals and _is_number(value) else value
-        for key, value in indicators.items()
-    }
 
 
 def _financial_checks(requirements: dict, indicators: dict) -> list[Check]:
@@ -337,4 +322,4 @@ def verify_requirements(
         verdict, summary = Verdict.MANUAL_REVIEW, "Could not determine: " + ", ".join(pending) + "."
     else:
         verdict, summary = Verdict.ELIGIBLE, "Meets all verified requirements."
-    return result(verdict, summary, indicators=_compute_financial_indicators(company, budget))
+    return result(verdict, summary, indicators=compute_financial_indicators(company, budget))

@@ -249,16 +249,24 @@ def compute_financial_indicators(company: dict, process_budget: float | None = N
     company's working capital. Rounding matches the course's `herramientas.calcular_indicadores`.
     """
     statements = company["estados_financieros"]
-    interest = statements["gastos_de_intereses"]
+
+    def ratio(numerator: str, denominator: str, digits: int, scale: float = 1.0) -> float | None:
+        # None instead of ZeroDivisionError for uploaded profiles with a zero divisor.
+        divisor = statements[denominator]
+        return round(scale * statements[numerator] / divisor, digits) if divisor else None
+
     indicators: dict[str, Any] = {
-        "liquidity_ratio": round(statements["activo_corriente"] / statements["pasivo_corriente"], 2),
-        "debt_ratio_pct": round(100 * statements["pasivo_total"] / statements["activo_total"], 1),
+        "liquidity_ratio": ratio("activo_corriente", "pasivo_corriente", 2),
+        "debt_ratio_pct": ratio("pasivo_total", "activo_total", 1, scale=100),
+        # No interest expense means coverage is undetermined, which RUP rules treat as passing.
         "interest_coverage_ratio": (
-            round(statements["utilidad_operacional"] / interest, 2) if interest else UNDETERMINED
+            ratio("utilidad_operacional", "gastos_de_intereses", 2)
+            if statements["gastos_de_intereses"]
+            else UNDETERMINED
         ),
         "working_capital": statements["activo_corriente"] - statements["pasivo_corriente"],
-        "return_on_equity": round(statements["utilidad_operacional"] / statements["patrimonio"], 3),
-        "return_on_assets": round(statements["utilidad_operacional"] / statements["activo_total"], 3),
+        "return_on_equity": ratio("utilidad_operacional", "patrimonio", 3),
+        "return_on_assets": ratio("utilidad_operacional", "activo_total", 3),
         "financial_statements_date": statements["corte"],
     }
     if process_budget:
