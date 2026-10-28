@@ -8,6 +8,13 @@ LangSmith, with a Gradio frontend. Course: *Inteligencia Artificial 2026-2*, wor
 ("Herramientas y costo-calidad"); the starter code and data come from
 [armandoordonez/taller_agente](https://github.com/armandoordonez/taller_agente).
 
+## Team
+
+This work was done by:
+
+- Esteban Gaviria Zambrano (A00396019)
+- Julián Andrés Mendoza Castro (A00395237)
+
 ## What the workshop asks for, and where it is answered
 
 | Requirement (`Reto_IA_2026.pdf`, course README, class notes) | Where |
