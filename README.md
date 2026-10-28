@@ -119,6 +119,24 @@ Verdicts: 6 `ELIGIBLE` (03, 07, 08, 11, 14, 15), 2 `NOT_ELIGIBLE` (13, 18), 12 `
 LangSmith evaluation on the same tenders (`eligibility-haiku-16b096ee`) gives verdict accuracy 1.00,
 requirement extraction 0.95 and tool usage 1.00.
 
+## Evidence
+
+Screenshots of the frontend, taken from one real session on 2026-10-28 (`python app.py`, Claude Haiku 5.5,
+20/20 correct, USD 0.043817 for the 20 tenders), and the LangSmith data behind every run
+([`docs/evidence/langsmith.md`](docs/evidence/langsmith.md): experiments with their feedback, tokens, cost
+and latency, and the full tool-call tree of one trace).
+
+| Screen | What it shows |
+|---|---|
+| [`01_home.png`](docs/evidence/01_home.png) | Inputs: optional company JSON, model, strict SMMLV switch |
+| [`02_results_20_tenders.png`](docs/evidence/02_results_20_tenders.png) | The 20 tenders: verdict counts, total cost, accuracy, per-tender cost, tokens and latency |
+| [`03_detail_eligible.png`](docs/evidence/03_detail_eligible.png) | Tender 03, `ELIGIBLE`: every requirement checked against the company |
+| [`04_detail_not_eligible.png`](docs/evidence/04_detail_not_eligible.png) | Tender 13, `NOT_ELIGIBLE`: working capital and experience fail |
+| [`05_detail_not_applicable.png`](docs/evidence/05_detail_not_applicable.png) | Tender 01, `NOT_APPLICABLE`: direct contracting, nothing to bid on |
+| [`06_follow_up_chat.png`](docs/evidence/06_follow_up_chat.png) | Follow-up question on tender 13, answered by the same agent with its memory |
+
+![Results for the 20 tenders](docs/evidence/02_results_20_tenders.png)
+
 ## Engineering notes
 
 - **Never pass `temperature`, `top_p` or `top_k`.** Claude Haiku 5.5 and API version 2026-10-21 reject
