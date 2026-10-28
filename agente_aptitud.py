@@ -20,7 +20,7 @@ from langsmith import get_current_run_tree, traceable
 
 import pliegos
 import validacion
-from costos import ContadorCostos
+from secop_agent.costs import CostTracker as ContadorCostos  # transitional, removed in the English port
 
 load_dotenv()
 
