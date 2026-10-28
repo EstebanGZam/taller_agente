@@ -59,17 +59,21 @@ meet six processes and fail two.
 | Change | Original Spanish prompt and tool descriptions | Precise tool descriptions, compact tool output with summary and warnings, reference filter, exact modality and sorting, one prompt rule per question type |
 | Correct answer (LLM judge) | 83.3 % (15/18) | **100.0 % (18/18)** |
 | Correct tool usage | 100.0 % | 100.0 % |
-| Input / output tokens | 80,048 / 9,904 | 97,411 / 5,208 |
-| Total cost | USD 0.012957 | **USD 0.012345** |
-| Cost per correct answer | USD 0.000864 | **USD 0.000686** |
-| Latency p50 / p95 | 4.29 s / 20.22 s | **2.73 s / 4.52 s** |
+| Input / output tokens | 77,684 / 8,968 | 97,358 / 5,319 |
+| Total cost | USD 0.012252 | USD 0.012395 |
+| Cost per correct answer | USD 0.000817 | **USD 0.000689** |
+| Latency p50 / p95 | 4.05 s / 6.32 s | **3.01 s / 3.69 s** |
 
-B is the only configuration above 85 % and is also cheaper and faster: it reads more input (richer tool
-descriptions) but writes half as many output tokens, which cost five times more. A fails the three questions
+Numbers from the executed notebook. B is the only configuration above 85 %. It reads more input (richer tool
+descriptions) but writes about 40 % fewer output tokens, which cost five times more, so its total cost is
+practically the same as A's (+1.2 %), it is cheaper per correct answer and faster. In an earlier run of the
+same experiments B was also cheaper in total (USD 0.012345 vs. 0.012957): the difference between A and B in
+total cost is within run-to-run variation, the difference in accuracy is not. A fails the three questions
 that name a process by its reference (R13 `LP-DT-CAU-003-2019`, R14 `SA-004-2023`, R16
 `FLO-INFRA-SA-MC-007-2025`): the original `search_processes` has no reference filter, so the agent searched
-by keywords, found nothing and answered that the process does not exist. Experiments: `A-baseline-5095108d`,
-`B-improved-913926ac`.
+by keywords, found nothing and answered that the process does not exist (the same three in both runs).
+Experiments: `A-baseline-f20d7ff7`, `B-improved-4e8aed68` (earlier run: `A-baseline-5095108d`,
+`B-improved-913926ac`).
 
 ## 5. The 20 tenders (eligibility agent)
 
@@ -80,15 +84,17 @@ by keywords, found nothing and answered that the process does not exist. Experim
 |---|---|
 | Accuracy against the key | **20 / 20 (100 %)** |
 | Verdicts | 6 ELIGIBLE · 2 NOT_ELIGIBLE · 12 NOT_APPLICABLE |
-| Total cost of the 20 analyses | **USD 0.042274** |
-| Mean cost per tender | USD 0.002114 |
-| Tokens | 206,783 input · 43,192 output |
-| Latency p50 | 12.8 s per tender (3 in parallel, about 1.6 min for the batch) |
+| Total cost of the 20 analyses | **USD 0.044076** |
+| Mean cost per tender | USD 0.002204 |
+| Tokens | 219,938 input · 44,165 output |
+| Latency p50 | 13.1 s per tender (3 in parallel, under 2 min for the batch) |
 
-LangSmith evaluation (`eligibility-haiku-v3-537350bb`, the same 20 tenders as the dataset
-`secop-eligibility-key`, an independent second run): verdict correct **1.000**, requirements extraction
-0.954 (share of expected requirement fields extracted correctly), tool usage 1.000, 0 errors, USD 0.043863,
-p50 12.7 s.
+LangSmith evaluation (`eligibility-haiku-16b096ee`, the same 20 tenders as the dataset
+`secop-eligibility-key`, an independent run): verdict correct **1.00**, requirements extraction 0.95 (share
+of expected requirement fields extracted correctly), tool usage 1.00, 0 errors, USD 0.043001, p50 12.0 s.
+
+These are the notebook's numbers. The same pipeline had already given 20/20 in two earlier runs (batch v3,
+USD 0.042274, and evaluation `eligibility-haiku-v3-537350bb`), so the result is stable over four runs.
 
 ### How we reached 20/20
 
@@ -97,14 +103,15 @@ p50 12.7 s.
 | v1 | 19/20 | 20 (special-regime contract for a person) read as a competitive call → `MANUAL_REVIEW` | Define direct contracting by the absence of a call for offers (no offer-submission date, no selection criterion), whatever legal ground it cites |
 | v2 | 19/20 | 20 fixed, but 18 became a false `ELIGIBLE`: asked for "the IDs of similar contracts", the model returned every contract | One structured judgment per contract (`same_nature` + reason); repeated probes: 30/30 correct on 08 and 18 |
 | v3 | **20/20** | — | — |
+| Notebook | **20/20** | — | — |
 
 ## 6. Cost and tracing
 
 - Every model call goes through `settings.chat_model()`; a `CostTracker` callback (`secop_agent/costs.py`)
   sums tokens and USD with Anthropic's public rates, including the calls made inside tools. LangSmith gets
   the same traces, with tokens, cost and latency per run.
-- Our cost and LangSmith's agree closely (A: identical, USD 0.012957; B: USD 0.012345 vs. 0.012558, a 1.7 %
-  gap).
+- Our cost and LangSmith's agree closely (notebook run, A: USD 0.012252 vs. 0.012154; B: USD 0.012395 vs.
+  0.012780; at most a 3 % gap).
 - One full run of the 20 tenders costs about USD 0.04; one Q&A experiment about USD 0.013.
 
 ## 7. Frontend

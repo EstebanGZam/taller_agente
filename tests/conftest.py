@@ -8,6 +8,7 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import AIMessage
 from langchain_core.outputs import ChatGeneration, ChatResult
 from langchain_core.runnables import RunnableLambda
+from langsmith.run_helpers import tracing_context
 from pydantic import PrivateAttr
 
 from secop_agent import eligibility_agent, settings, tender_documents
@@ -15,6 +16,13 @@ from secop_agent.batch_eligibility import load_company
 
 KEY = json.loads(settings.ELIGIBILITY_KEY_FILE.read_text())["processes"]
 COMPANY = load_company()
+
+
+@pytest.fixture(autouse=True)
+def no_tracing():
+    """Keep every test out of LangSmith, even when the shell (or a notebook) enabled tracing."""
+    with tracing_context(enabled=False):
+        yield
 
 
 @pytest.fixture

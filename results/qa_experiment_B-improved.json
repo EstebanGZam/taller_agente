@@ -1,6 +1,6 @@
 {
  "prefix": "B-improved",
- "experiment": "B-improved-913926ac",
+ "experiment": "B-improved-4e8aed68",
  "agent_config": "B",
  "model": "anthropic:claude-haiku-5-5",
  "change": "Precise descriptions, compact output with summary and warnings, reference filter, exact modality and sorting; prompt with one rule per question type",
@@ -8,14 +8,14 @@
  "tool_usage_accuracy": 100.0,
  "answer_accuracy": 100.0,
  "combined_accuracy": 100.0,
- "input_tokens": 97411,
- "output_tokens": 5208,
- "total_cost_usd": 0.012345,
- "cost_per_question_usd": 0.000686,
- "cost_per_correct_answer_usd": 0.000686,
- "langsmith_cost_usd": 0.0125584,
- "latency_p50_s": 2.73,
- "latency_p95_s": 4.52,
+ "input_tokens": 97358,
+ "output_tokens": 5319,
+ "total_cost_usd": 0.012395,
+ "cost_per_question_usd": 0.000689,
+ "cost_per_correct_answer_usd": 0.000689,
+ "langsmith_cost_usd": 0.0127801,
+ "latency_p50_s": 3.01,
+ "latency_p95_s": 3.69,
  "errors": 0,
  "per_question": [
   {
@@ -24,13 +24,13 @@
    "tools_used": [
     "compute_financial_indicators"
    ],
-   "answer": "El índice de liquidez de nuestra empresa es **1,7**, según los estados financieros al 31 de diciembre de 2025.",
+   "answer": "El índice de liquidez de Ingeniería y Mantenimiento del Pacífico S.A.S. es **1,7**, según los estados financieros al 31 de diciembre de 2025.\n\nEste valor significa que por cada peso de pasivo corriente la empresa tiene $1,7 de activo corriente. Para contexto, el capital de trabajo asciende a $182.000.000.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5101,
-   "output_tokens": 78,
-   "cost_usd": 0.0005491,
-   "latency_s": 2.671,
+   "output_tokens": 162,
+   "cost_usd": 0.0005911,
+   "latency_s": 2.147,
    "error": null
   },
   {
@@ -39,13 +39,13 @@
    "tools_used": [
     "compute_financial_indicators"
    ],
-   "answer": "Nuestro nivel de endeudamiento es de **62,0 %** según los estados financieros al 31 de diciembre de 2025.\n\nAdemás, el índice de cobertura de intereses es de 2,5 veces.",
+   "answer": "Nuestro nivel de endeudamiento es de **62,0%** (índice de endeudamiento al 31/12/2025), es decir, el 62% de nuestros activos está financiado con pasivos.\n\nComo referencia complementaria, la cobertura de intereses es de 2,5 veces, lo que indica que la utilidad operativa cubre los gastos financieros con un margen moderado.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5097,
-   "output_tokens": 174,
-   "cost_usd": 0.0005967,
-   "latency_s": 4.879,
+   "output_tokens": 163,
+   "cost_usd": 0.0005912,
+   "latency_s": 3.205,
    "error": null
   },
   {
@@ -54,13 +54,13 @@
    "tools_used": [
     "compute_financial_indicators"
    ],
-   "answer": "La razón de cobertura de intereses de nuestra empresa es **2,5** (según los estados financieros al 31-12-2025), es decir, la utilidad operacional cubre 2,5 veces los gastos por intereses.",
+   "answer": "La razón de cobertura de intereses de nuestra empresa es **2,5** (según los estados financieros al 31 de diciembre de 2025). Es decir, la utilidad operacional cubre 2,5 veces los gastos por intereses.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5099,
-   "output_tokens": 108,
-   "cost_usd": 0.0005639,
-   "latency_s": 1.994,
+   "output_tokens": 114,
+   "cost_usd": 0.0005669,
+   "latency_s": 3.666,
    "error": null
   },
   {
@@ -75,7 +75,7 @@
    "input_tokens": 5091,
    "output_tokens": 90,
    "cost_usd": 0.0005541,
-   "latency_s": 1.934,
+   "latency_s": 1.819,
    "error": null
   },
   {
@@ -84,13 +84,13 @@
    "tools_used": [
     "get_company_profile"
    ],
-   "answer": "Los códigos UNSPSC registrados en el RUP de Ingeniería y Mantenimiento del Pacífico S.A.S. son cinco: 72141000, 81101500, 72101500, 72152700 y 72102900. El RUP está vigente y su renovación está fechada el 15 de marzo de 2026.",
+   "answer": "Los códigos UNSPSC registrados en el RUP de Ingeniería y Mantenimiento del Pacífico S.A.S. son cinco: 72141000, 81101500, 72101500, 72152700 y 72102900. El RUP está vigente y su renovación es el 15/03/2026.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5821,
-   "output_tokens": 138,
-   "cost_usd": 0.0006511,
-   "latency_s": 1.869,
+   "output_tokens": 131,
+   "cost_usd": 0.0006476,
+   "latency_s": 1.751,
    "error": null
   },
   {
@@ -99,13 +99,13 @@
    "tools_used": [
     "get_company_profile"
    ],
-   "answer": "La experiencia registrada con el código UNSPSC 81101500 suma **$950.000.000**, correspondiente a dos contratos:\n\n- **EXP-1** (2022), Gobernación del Valle del Cauca: mantenimiento y rehabilitación de puentes vehiculares en vías secundarias. Valor: $520.000.000.\n- **EXP-2** (2023), Municipio de Jamundí: construcción de obras de drenaje y conservación de vías rurales. Valor: $430.000.000.",
+   "answer": "La experiencia con el código UNSPSC 81101500 suma **$950.000.000**, correspondiente a dos contratos registrados en nuestro RUP:\n\n- **EXP-1** (2022): Gobernación del Valle del Cauca, mantenimiento y rehabilitación de puentes vehiculares en vías secundarias. Valor: $520.000.000.\n- **EXP-2** (2023): Municipio de Jamundí, construcción de obras de drenaje y conservación de vías rurales. Valor: $430.000.000.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5922,
-   "output_tokens": 230,
-   "cost_usd": 0.0007072,
-   "latency_s": 3.604,
+   "output_tokens": 238,
+   "cost_usd": 0.0007112,
+   "latency_s": 2.982,
    "error": null
   },
   {
@@ -114,13 +114,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "Hay **9 procesos** de contratación directa en la muestra (SECOP II, 20 procesos en total), con un presupuesto oficial acumulado de $3.579.841.463 y un promedio de $397.760.163 por proceso.",
+   "answer": "Hay **9 procesos** de contratación directa en la muestra (referencias: EDP-545-2022, CD-55-2021-3516, CD-CPS-0720-2026, PS-147-2025, SINF-CPS-050-23, SDIS-CPS-302405-2024, 009-2021, FNV-001-2021 y CD-PS-GDCH-186SS-2024). El presupuesto oficial total de estos procesos es de $3.579.841.463.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5630,
-   "output_tokens": 156,
-   "cost_usd": 0.000641,
-   "latency_s": 1.928,
+   "output_tokens": 232,
+   "cost_usd": 0.000679,
+   "latency_s": 2.269,
    "error": null
   },
   {
@@ -129,13 +129,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "El proceso con mayor presupuesto oficial es el **LP-DT-CAU-003-2019**, con **$53.520.784.298**.\n\n- **Entidad:** INVIAS (ciudad de la entidad: Bogotá).\n- **Unidad contratante:** Dirección Territorial Cauca (ciudad: Cali).\n- **Objeto:** Mantenimiento rutinario de vías a cargo del Instituto Nacional de Vías, Dirección Territorial Cauca.\n- **Modalidad:** Licitación pública (obra pública). Duración de 33 meses, 51 oferentes.\n- **Estado:** Adjudicado a la Cooperativa de Trabajo Asociado Siglo XXI, por $1.217.527.123.",
+   "answer": "El proceso con mayor presupuesto oficial es el **LP-DT-CAU-003-2019**, de **INVIAS** (Instituto Nacional de Vías), con un presupuesto oficial de **$53.520.784.298**.\n\n- Modalidad: licitación pública (obra pública).\n- Objeto: mantenimiento rutinario de vías, Dirección Territorial Cauca.\n- Entidad en Bogotá; la unidad contratante (Dirección Territorial Cauca) está en Cali.\n- Duración: 33 meses. Estado: adjudicado a COOPERATIVA DE TRABAJO ASOCIADO SIGLO XXI por $1.217.527.123, con 51 ofertas recibidas.",
    "tool_usage": 1,
    "correct_answer": 1,
-   "input_tokens": 5788,
-   "output_tokens": 422,
-   "cost_usd": 0.0007898,
-   "latency_s": 3.05,
+   "input_tokens": 5742,
+   "output_tokens": 324,
+   "cost_usd": 0.0007362,
+   "latency_s": 3.099,
    "error": null
   },
   {
@@ -144,13 +144,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "Hay **2 procesos** de licitación pública en la muestra, con un presupuesto oficial total de $54.120.784.298.\n\n1. **LP-DT-CAU-003-2019**, INVIAS (entidad en Bogotá; unidad de contratación Dirección Territorial Cauca en Cali). Mantenimiento rutinario de vías. Presupuesto oficial: $53.520.784.298, duración de 33 meses, publicado el 30/09/2019. Estado: adjudicado a COOPERATIVA DE TRABAJO ASOCIADO SIGLO XXI por $1.217.527.123, con 51 ofertas recibidas.\n2. **FDLS-LP-098-2019**, Alcaldía Local de Sumapaz (Bogotá, área de contratación en Bogotá). Conservación de puentes sobre corrientes de agua. Presupuesto oficial: $600.000.000, duración de 5 meses, publicado el 29/04/2019. Estado: en evaluación, sin ofertas registradas y sin adjudicatario.",
+   "answer": "Hay **2 procesos** de licitación pública en la muestra local, con un presupuesto oficial total de $54.120.784.298.\n\n1. **FDLS-LP-098-2019**, Alcaldía Local de Sumapaz (Bogotá). Conservación de puentes sobre corrientes de agua en la localidad. Presupuesto: $600.000.000. Duración: 5 meses. Estado: en evaluación. No registra oferentes ni adjudicatario.\n\n2. **LP-DT-CAU-003-2019**, INVIAS (entidad en Bogotá; unidad de contratación Dirección Territorial Cauca, en Cali). Mantenimiento rutinario de vías. Presupuesto: $53.520.784.298. Duración: 33 meses. Recibió 51 ofertas y está adjudicado a la Cooperativa de Trabajo Asociado Siglo XXI por $1.217.527.123.",
    "tool_usage": 1,
    "correct_answer": 1,
-   "input_tokens": 5895,
-   "output_tokens": 625,
-   "cost_usd": 0.000902,
-   "latency_s": 3.925,
+   "input_tokens": 5858,
+   "output_tokens": 515,
+   "cost_usd": 0.0008433,
+   "latency_s": 3.039,
    "error": null
   },
   {
@@ -159,13 +159,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "El presupuesto promedio de los procesos de entidades de Antioquia en la muestra es de **$120.120.571**, calculado sobre 3 procesos (total: $360.361.713).\n\n- **SA-004-2023**, Instituto de Deportes y Recreación de Medellín: $270.101.513. Tiene una advertencia: la duración figura como 0 días, así que hay que verificar ese dato en los pliegos.\n- **5308/SASP01/2023**, Alcaldía de Girardota: $86.000.000.\n- **OC10-2494-2025**, Empresa Social del Estado Bellosalud: $4.260.200.",
+   "answer": "El presupuesto promedio de los 3 procesos de entidades de Antioquia en la muestra es de **$120.120.571**, con un total de $360.361.713.\n\n- **OC10-2494-2025**, EMPRESA SOCIAL DEL ESTADO BELLOSALUD (Bello; unidad contratante en Bello): $4.260.200.\n- **SA-004-2023**, INSTITUTO DE DEPORTES Y RECREACION DE MEDELLIN (Medellín; unidad contratante en Medellín): $270.101.513. Tiene una advertencia: la duración figura como 0 días, así que hay que verificar ese dato en los pliegos.\n- **5308/SASP01/2023**, ALCALDIA DE GIRARDOTA (Girardota; unidad contratante en Girardota): $86.000.000.\n\nEl promedio está muy influido por SA-004-2023, que es el proceso de mayor valor.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 6057,
-   "output_tokens": 343,
-   "cost_usd": 0.0007772,
-   "latency_s": 2.481,
+   "output_tokens": 482,
+   "cost_usd": 0.0008467,
+   "latency_s": 3.399,
    "error": null
   },
   {
@@ -174,13 +174,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "Hay **2 procesos** de entidades de Santander en la muestra. El más reciente es **FLO-INFRA-SA-MC-007-2025**, publicado el 30/12/2025 por la Alcaldía de Floridablanca.\n\n- **FLO-INFRA-SA-MC-007-2025:** Selección Abreviada de Menor Cuantía para adecuar y mantener instalaciones del Palacio Municipal de Floridablanca. Presupuesto oficial de $305.813.941, duración de 2 meses, 3 ofertas recibidas y adjudicado a CONSTRUOBRAS ISAVAL S.A.S. por $305.644.297. La entidad y su unidad contratante están en Floridablanca.\n- **SINF-CPS-050-23:** Contratación directa de Municipio de Piedecuesta (Unidad de Contratación Secretaría de Infraestructura, también en Piedecuesta) para un ingeniero civil especializado. Presupuesto de $12.000.000, duración de 3 meses, publicado el 14/02/2023, estado \"Seleccionado\" y sin ofertas registradas.",
+   "answer": "Hay **2 procesos** de entidades de Santander en la muestra. El más reciente es **FLO-INFRA-SA-MC-007-2025**, publicado el 30/12/2025 por la **Alcaldía de Floridablanca**.\n\n- **FLO-INFRA-SA-MC-007-2025** (más reciente): selección abreviada de menor cuantía para la adecuación y mantenimiento de instalaciones del Palacio Municipal de Floridablanca. Presupuesto oficial: $305.813.941. Duración: 2 meses. Estado: adjudicado a CONSTRUOBRAS ISAVAL S.A.S. por $305.644.297, con 3 ofertas recibidas. La entidad y la unidad contratante están en Floridablanca.\n- **SINF-CPS-050-23**: contratación directa del Municipio de Piedecuesta (Unidad de Contratación Secretaría de Infraestructura) para servicios profesionales de ingeniero civil. Presupuesto oficial: $12.000.000. Duración: 3 meses. Publicado el 14/02/2023, estado \"Seleccionado\", sin ofertas registradas y sin proveedor adjudicado en los datos.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5866,
-   "output_tokens": 594,
-   "cost_usd": 0.0008836,
-   "latency_s": 3.863,
+   "output_tokens": 593,
+   "cost_usd": 0.0008831,
+   "latency_s": 3.392,
    "error": null
   },
   {
@@ -189,13 +189,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "El proceso de la Dirección Territorial Cauca de INVIAS es **LP-DT-CAU-003-2019**, con un presupuesto oficial de $53.520.784.298.\n\n- **Entidad:** Instituto Nacional de Vías (INVIAS), con sede en Bogotá. La unidad contratante, Dirección Territorial Cauca, está en Cali, así que las ciudades difieren.\n- **Modalidad:** Licitación pública (obra pública).\n- **Objeto:** Mantenimiento rutinario de vías a cargo de la Dirección Territorial Cauca (producto: vía primaria mantenida).\n- **Duración:** 33 meses.\n- **Publicación:** 30 de septiembre de 2019.\n- **Estado:** Adjudicado a la COOPERATIVA DE TRABAJO ASOCIADO SIGLO XXI, por $1.217.527.123, tras recibir 51 ofertas.",
+   "answer": "El proceso de INVIAS asociado a la Dirección Territorial Cauca es **LP-DT-CAU-003-2019**, con un presupuesto oficial de $53.520.784.298.\n\n- **Entidad:** Instituto Nacional de Vías (INVIAS), con sede en Bogotá. La unidad contratante, Dirección Territorial Cauca, está en Cali.\n- **Modalidad:** Licitación pública (obra pública).\n- **Objeto:** Mantenimiento rutinario de vías a cargo de la Dirección Territorial Cauca (producto: vía primaria mantenida).\n- **Duración:** 33 meses.\n- **Publicación:** 30/09/2019. Estado: adjudicado.\n- **Oferentes:** 51.\n- **Adjudicatario:** Cooperativa de Trabajo Asociado Siglo XXI, por $1.217.527.123.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5558,
-   "output_tokens": 423,
-   "cost_usd": 0.0007673,
-   "latency_s": 2.794,
+   "output_tokens": 408,
+   "cost_usd": 0.0007598,
+   "latency_s": 2.862,
    "error": null
   },
   {
@@ -204,13 +204,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "El proceso LP-DT-CAU-003-2019 recibió **51 ofertas** y lo ganó la **COOPERATIVA DE TRABAJO ASOCIADO SIGLO XXI**, por un valor adjudicado de $1.217.527.123.\n\nDatos del proceso:\n- Entidad: INVIAS (Bogotá), con unidad contratante Dirección Territorial Cauca (Cali).\n- Presupuesto oficial: $53.520.784.298.\n- Duración: 33 meses.\n- Estado: Adjudicado.",
+   "answer": "El proceso LP-DT-CAU-003-2019 recibió 51 ofertas y lo ganó la COOPERATIVA DE TRABAJO ASOCIADO SIGLO XXI, por un valor adjudicado de $1.217.527.123.\n\nDatos adicionales del proceso:\n- Entidad: INVIAS (Bogotá), con unidad contratante en la Dirección Territorial Cauca (Cali).\n- Presupuesto oficial: $53.520.784.298.\n- Duración: 33 meses.\n- Estado: Adjudicado.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5539,
-   "output_tokens": 252,
-   "cost_usd": 0.0006799,
-   "latency_s": 2.258,
+   "output_tokens": 255,
+   "cost_usd": 0.0006814,
+   "latency_s": 2.051,
    "error": null
   },
   {
@@ -219,13 +219,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "El plazo de ejecución del proceso SA-004-2023 no está disponible en los datos abiertos: el registro figura con 0 días, un valor inconsistente que debe verificarse en los pliegos de condiciones.\n\nDatos del proceso:\n- Entidad: Instituto de Deportes y Recreación de Medellín (Medellín, Antioquia).\n- Unidad de contratación: Subdirección de Escenarios Deportivos (Medellín).\n- Modalidad: Selección abreviada, subasta inversa.\n- Presupuesto oficial: $270.101.513.\n- Estado: Evaluación, sin oferentes registrados.",
+   "answer": "El plazo de ejecución del proceso SA-004-2023 no está disponible en los datos abiertos: el registro indica 0 días, lo que es inconsistente. Debe verificarse en los pliegos de condiciones.\n\nDatos del proceso:\n- Entidad: Instituto de Deportes y Recreación de Medellín (Medellín, Antioquia).\n- Unidad de contratación: Subdirección de Escenarios Deportivos (Medellín), misma ciudad que la entidad.\n- Modalidad: Selección abreviada subasta inversa.\n- Presupuesto oficial: $270.101.513.\n- Estado: Evaluación, sin oferentes registrados.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5534,
-   "output_tokens": 274,
-   "cost_usd": 0.0006904,
-   "latency_s": 2.384,
+   "output_tokens": 286,
+   "cost_usd": 0.0006964,
+   "latency_s": 2.939,
    "error": null
   },
   {
@@ -234,13 +234,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "El presupuesto oficial del proceso de Agrosavia (referencia 135116) figura en **$0** en los datos abiertos. Ese valor es inconsistente o no está disponible, así que debe verificarse en los pliegos de la licitación.\n\n- **Entidad:** Corporación Colombiana de Investigación Agropecuaria (AGROSAVIA), con sede en Mosquera (Cundinamarca).\n- **Unidad de contratación:** Adquisiciones Obonuco, en Pasto. Es distinta a la ciudad de la entidad.\n- **Objeto:** catálogo de elementos de protección personal (EPP) para el Centro de Investigación Obonuco (Pasto).\n- **Modalidad:** régimen especial. Duración de 6 meses, publicado el 6 de agosto de 2024, estado \"Publicado\", sin oferentes registrados.",
+   "answer": "El presupuesto oficial del proceso de Agrosavia (referencia 135116) está registrado en **$0**. Ese valor es inconsistente o no está disponible en los datos abiertos, así que debe verificarse en los pliegos de la licitación.\n\n- **Entidad:** Corporación Colombiana de Investigación Agropecuaria (Agrosavia), con sede en Mosquera, Cundinamarca.\n- **Unidad contratante:** Adquisiciones Obonuco, en Pasto. Las ciudades difieren, por lo que la entidad y su unidad contratante están en lugares distintos.\n- **Objeto:** catálogo de elementos de protección personal (EPP) para el Centro de Investigación Obonuco (Pasto).\n- **Modalidad:** régimen especial. Duración de 6 meses. Publicado el 6 de agosto de 2024. Sin oferentes registrados ni proveedor adjudicado.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 5488,
-   "output_tokens": 404,
-   "cost_usd": 0.0007508,
-   "latency_s": 2.942,
+   "output_tokens": 432,
+   "cost_usd": 0.0007648,
+   "latency_s": 2.961,
    "error": null
   },
   {
@@ -250,39 +250,39 @@
     "search_processes",
     "compute_financial_indicators"
    ],
-   "answer": "Sí. Nuestro capital de trabajo es de $182.000.000, equivalente al 59,5 % del presupuesto del proceso FLO-INFRA-SA-MC-007-2025 (Alcaldía de Floridablanca, presupuesto de $305.813.941). El 40 % exigido equivale a $122.325.576, así que cumplimos el requisito con holgura.\n\nEl proceso es una selección abreviada de menor cuantía, ubicada en Floridablanca (Santander), y su unidad de contratación también está en Floridablanca.",
+   "answer": "Sí. Nuestro capital de trabajo ($182.000.000) equivale al 59,5 % del presupuesto del proceso FLO-INFRA-SA-MC-007-2025 (Alcaldía de Floridablanca, Santander), por lo que superamos el 40 % exigido. Ese 40 % equivale a $122.325.576, sobre un presupuesto oficial de $305.813.941.",
    "tool_usage": 1,
    "correct_answer": 1,
-   "input_tokens": 8973,
-   "output_tokens": 359,
-   "cost_usd": 0.0010768,
-   "latency_s": 3.475,
+   "input_tokens": 9003,
+   "output_tokens": 326,
+   "cost_usd": 0.0010633,
+   "latency_s": 3.062,
    "error": null
   },
   {
    "id": "R17",
    "question": "¿Qué es el SECOP II?",
    "tools_used": [],
-   "answer": "El SECOP II (Sistema Electrónico de Contratación Pública) es la plataforma transaccional oficial de Colombia para la contratación estatal. Administrada por Colombia Compra Eficiente, permite a las entidades públicas publicar procesos, recibir ofertas y adjudicar contratos en línea, y a los proveedores consultar oportunidades, presentar propuestas y gestionar la ejecución de sus contratos. A diferencia de su versión anterior, es transaccional: los documentos y las ofertas se cargan y firman directamente en la plataforma, con una cuenta verificada en el sistema.",
+   "answer": "SECOP II (Sistema Electrónico para la Contratación Pública) es la plataforma transaccional de Colombia, administrada por Colombia Compra Eficiente, donde las entidades estatales publican sus procesos de contratación y los proveedores presentan ofertas en línea. Permite gestionar todo el ciclo: publicación de documentos del proceso, preguntas y respuestas, presentación y evaluación de ofertas, adjudicación y firma del contrato, así como la publicación de la ejecución contractual. Es de consulta pública, aunque para participar como oferente se requiere registrarse en la plataforma y contar con el RUP (Registro Único de Proponentes) vigente.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 2469,
-   "output_tokens": 210,
-   "cost_usd": 0.0003519,
-   "latency_s": 2.021,
+   "output_tokens": 235,
+   "cost_usd": 0.0003644,
+   "latency_s": 3.813,
    "error": null
   },
   {
    "id": "R18",
    "question": "¿Qué diferencia hay entre una licitación pública y una contratación directa?",
    "tools_used": [],
-   "answer": "La licitación pública es el procedimiento competitivo general: la entidad publica el proceso, cualquier interesado puede presentar oferta y se adjudica según criterios objetivos (generalmente al oferente con la mejor propuesta). Se usa como regla para contratos de cuantías altas y es la modalidad más formal, con plazos y etapas más largos.\n\nLa contratación directa, en cambio, es una modalidad excepcional en la que la entidad selecciona al contratista sin un proceso competitivo abierto, solo en los casos que autoriza la ley (por ejemplo, prestación de servicios profesionales y de apoyo a la gestión, urgencia manifiesta, contratos interadministrativos o cuando solo existe un proveedor). Es más ágil, pero tiene menos concurrencia.\n\nEn resumen: la licitación pública prioriza la competencia y la transparencia; la contratación directa prioriza la agilidad y se limita a supuestos legales específicos.",
+   "answer": "La licitación pública es el procedimiento de selección competitivo y abierto: la entidad publica el pliego de condiciones, cualquier proponente habilitado puede presentar oferta y se adjudica según criterios objetivos (principalmente precio y calidad técnica). Es la regla general en la contratación estatal colombiana y se usa para los contratos de mayor cuantía.\n\nLa contratación directa, en cambio, permite a la entidad escoger al contratista sin un proceso competitivo abierto. Solo procede en los casos que señala la ley (por ejemplo, prestación de servicios profesionales y de apoyo a la gestión, contratos interadministrativos, urgencia manifiesta o proveedor único), por lo que tiene un carácter excepcional y exige justificar la causal.\n\nEn síntesis: la licitación privilegia la concurrencia y la transparencia de una convocatoria abierta, mientras que la contratación directa restringe la competencia a una selección justificada por la entidad.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 2483,
-   "output_tokens": 328,
-   "cost_usd": 0.0004123,
-   "latency_s": 4.46,
+   "output_tokens": 333,
+   "cost_usd": 0.0004148,
+   "latency_s": 3.388,
    "error": null
   }
  ]

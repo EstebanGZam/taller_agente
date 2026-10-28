@@ -1,6 +1,6 @@
 {
  "prefix": "A-baseline",
- "experiment": "A-baseline-5095108d",
+ "experiment": "A-baseline-f20d7ff7",
  "agent_config": "A",
  "model": "anthropic:claude-haiku-5-5",
  "change": "Course's original prompt and tool descriptions (baseline)",
@@ -8,14 +8,14 @@
  "tool_usage_accuracy": 100.0,
  "answer_accuracy": 83.3,
  "combined_accuracy": 83.3,
- "input_tokens": 80048,
- "output_tokens": 9904,
- "total_cost_usd": 0.012957,
- "cost_per_question_usd": 0.00072,
- "cost_per_correct_answer_usd": 0.000864,
- "langsmith_cost_usd": 0.0129568,
- "latency_p50_s": 4.29,
- "latency_p95_s": 20.22,
+ "input_tokens": 77684,
+ "output_tokens": 8968,
+ "total_cost_usd": 0.012252,
+ "cost_per_question_usd": 0.000681,
+ "cost_per_correct_answer_usd": 0.000817,
+ "langsmith_cost_usd": 0.0121544,
+ "latency_p50_s": 4.05,
+ "latency_p95_s": 6.32,
  "errors": 0,
  "per_question": [
   {
@@ -24,13 +24,13 @@
    "tools_used": [
     "compute_financial_indicators"
    ],
-   "answer": "El índice de liquidez de la empresa es **1,7** (según los estados financieros al 31-12-2025).\n\nEsto significa que por cada peso de pasivo corriente la empresa tiene about $1,7 de activo corriente. El capital de trabajo asciende a $182.000.000.",
+   "answer": "El índice de liquidez de la empresa es **1,7** (según los estados financieros al 31-12-2025).\n\nEsto significa que por cada peso de pasivo corriente, la empresa tiene aproximadamente $1,70 en activos corrientes. El capital de trabajo asciende a $182.000.000.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 2775,
-   "output_tokens": 129,
-   "cost_usd": 0.000342,
-   "latency_s": 2.194,
+   "output_tokens": 136,
+   "cost_usd": 0.0003455,
+   "latency_s": 1.987,
    "error": null
   },
   {
@@ -39,13 +39,13 @@
    "tools_used": [
     "compute_financial_indicators"
    ],
-   "answer": "El nivel de endeudamiento de la empresa es de **62 %** (razón de endeudamiento), según los estados financieros al 31-12-2025.\n\nContexto breve:\n- Cobertura de intereses: 2,5 veces.\n- Liquidez: 1,7.\n- Capital de trabajo: $182.000.000.",
+   "answer": "Su nivel de endeudamiento es de **62,0 %**, según los estados financieros al 31-12-2025. Es decir, el 62 % de sus activos está financiado con deudas y el 38 % restante con patrimonio.\n\nComo referencia, la cobertura de intereses es de 2,5 veces, así que las utilidades alcanzan para pagar los intereses, aunque sin un margen muy amplio.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 2771,
-   "output_tokens": 143,
-   "cost_usd": 0.0003486,
-   "latency_s": 19.76,
+   "output_tokens": 229,
+   "cost_usd": 0.0003916,
+   "latency_s": 3.644,
    "error": null
   },
   {
@@ -54,13 +54,13 @@
    "tools_used": [
     "compute_financial_indicators"
    ],
-   "answer": "La razón de cobertura de intereses de nuestra empresa es **2.5** (es decir, la utilidad disponible para pagar intereses alcanza 2,5 veces el gasto financiero). Los estados financieros son al 31 de diciembre de 2025.",
+   "answer": "La razón de cobertura de intereses de la empresa es **2,5** (según los estados financieros al 31-12-2025). Es decir, la utilidad operativa cubre 2,5 veces los gastos financieros.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 2773,
-   "output_tokens": 121,
-   "cost_usd": 0.0003378,
-   "latency_s": 2.562,
+   "output_tokens": 105,
+   "cost_usd": 0.0003298,
+   "latency_s": 2.063,
    "error": null
   },
   {
@@ -69,13 +69,13 @@
    "tools_used": [
     "compute_financial_indicators"
    ],
-   "answer": "Según los estados financieros al 31 de diciembre de 2025, nuestro capital de trabajo es de **$182.000.000** (razón de liquidez de 1,7).",
+   "answer": "Según los estados financieros al 31-dic-2025, nuestro capital de trabajo es de **$182.000.000** (razón de liquidez de 1,7).",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 2765,
-   "output_tokens": 91,
-   "cost_usd": 0.000322,
-   "latency_s": 1.91,
+   "output_tokens": 87,
+   "cost_usd": 0.00032,
+   "latency_s": 1.967,
    "error": null
   },
   {
@@ -84,13 +84,13 @@
    "tools_used": [
     "get_company_profile"
    ],
-   "answer": "Según el RUP vigente (renovado el 15/03/2026), la empresa tiene registrados estos cinco códigos UNSPSC:\n\n- **72141000**: Servicios de construcción de carreteras y vías\n- **81101500**: Ingeniería civil\n- **72101500**: Servicios de construcción y mantenimiento de edificios\n- **72152700**: Servicios de construcción de instalaciones educativas (aunque la descripción no aparece en los datos, lo indico según su nombre habitual en el catálogo UNSPSC)\n- **72102900**: Servicios de preparación de sitios para construcción (también descrito según el catálogo UNSPSC, no según los datos recibidos)\n\nLos dos últimos códigos no traen descripción en el perfil; si necesitas confirmar su alcance exacto, conviene verificarlos en el catálogo UNSPSC oficial.",
+   "answer": "Según el RUP vigente (renovación: 2026-03-15), la empresa tiene registrados estos cinco códigos UNSPSC:\n\n- **72141000** – Servicios de construcción de carreteras y vías de tránsito\n- **81101500** – Ingeniería civil\n- **72101500** – Servicios de construcción y mantenimiento de edificios (mantenimiento de edificaciones)\n- **72152700** – Servicios de construcción de obras de drenaje y alcantarillado (según la descripción estándar UNSPSC)\n- **72102900** – Servicios de mantenimiento de edificios o de instalaciones (según la descripción estándar UNSPSC)\n\nNota: las descripciones son las del clasificador UNSPSC estándar, no las que trae el RUP; conviene verificarlas en el propio RUP antes de usarlas en un proceso.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 3495,
-   "output_tokens": 328,
-   "cost_usd": 0.0005135,
-   "latency_s": 3.113,
+   "output_tokens": 322,
+   "cost_usd": 0.0005105,
+   "latency_s": 3.404,
    "error": null
   },
   {
@@ -99,13 +99,13 @@
    "tools_used": [
     "get_company_profile"
    ],
-   "answer": "Suman **$950.000.000 COP** en dos contratos con el código UNSPSC 81101500:\n\n| ID | Contratante | Objeto | Año | Valor |\n|---|---|---|---|---|\n| EXP-1 | Gobernación del Valle del Cauca | Mantenimiento y rehabilitación de puentes vehiculares en vías secundarias | 2022 | $520.000.000 |\n| EXP-2 | Municipio de Jamundí | Construcción de obras de drenaje y conservación de vías rurales | 2023 | $430.000.000 |\n\nEXP-3 y EXP-4 no tienen ese código, así que no se incluyeron. El código 81101500 también figura en nuestro RUP vigente.",
+   "answer": "Nuestra experiencia con el código UNSPSC **81101500** suma **$950.000.000 COP**, en dos contratos:\n\n| Ref. | Contratante | Objeto | Año | Valor |\n|---|---|---|---|---|\n| EXP-1 | Gobernación del Valle del Cauca | Mantenimiento y rehabilitación de puentes vehiculares en vías secundarias | 2022 | $520.000.000 |\n| EXP-2 | Municipio de Jamundí | Construcción de obras de drenaje y conservación de vías rurales | 2023 | $430.000.000 |\n\nLos demás contratos (EXP-3 y EXP-4) no tienen ese código, así que no se incluyen. El código también figura en nuestro RUP, pero eso no suma experiencia por sí solo.",
    "tool_usage": 1,
    "correct_answer": 1,
-   "input_tokens": 3568,
-   "output_tokens": 417,
-   "cost_usd": 0.0005653,
-   "latency_s": 3.235,
+   "input_tokens": 3571,
+   "output_tokens": 470,
+   "cost_usd": 0.0005921,
+   "latency_s": 3.186,
    "error": null
   },
   {
@@ -114,13 +114,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "Hay **9 procesos** de contratación directa en la muestra, por un presupuesto total de about $3.580 millones (promedio de unos $398 millones).\n\nHay dos cosas que conviene revisar antes de usar estos datos:\n\n- **CD-55-2021-3516** (Distrito de Barranquilla) tiene un plazo de **0 días**, lo que parece un error de registro. No puedo confirmar la duración real.\n- En los 9 procesos, el campo \"adjudicado\" figura como \"No\", el proveedor como \"No Definido\" y el valor adjudicado como $0. Son procesos en estado \"Seleccionado\", así que no hay información de adjudicación en la muestra.",
+   "answer": "Hay **9 procesos** de contratación directa en la muestra, con un presupuesto total de unos $3.580 millones.\n\nHay datos que conviene revisar antes de usarlos:\n\n- **CD-55-2021-3516** (Distrito de Barranquilla): el plazo figura como **0 días**, así que no puedo confirmar la duración.\n- En los 9 procesos, \"adjudicado\" aparece como \"No\", el proveedor como \"No Definido\" y el valor de adjudicación como $0. Puede ser que la muestra sea de procesos sin adjudicar o que los datos estén incompletos. Lo confirmaría en la URL de cada proceso antes de sacar conclusiones.",
    "tool_usage": 1,
    "correct_answer": 1,
-   "input_tokens": 7803,
-   "output_tokens": 538,
-   "cost_usd": 0.0010493,
-   "latency_s": 4.116,
+   "input_tokens": 7727,
+   "output_tokens": 427,
+   "cost_usd": 0.0009862,
+   "latency_s": 3.661,
    "error": null
   },
   {
@@ -129,13 +129,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "El proceso con mayor presupuesto oficial de los resultados es:\n\n- **Referencia:** LP-DT-CAU-003-2019 (ID CO1.REQ.976985)\n- **Entidad:** INVIAS, Dirección Territorial Cauca\n- **Objeto:** Mantenimiento rutinario de vías a cargo del INVIAS, Dirección Territorial Cauca\n- **Modalidad:** Licitación pública de obra pública\n- **Presupuesto oficial (precio base):** $53.520.784.298 (unos 53.520 millones de pesos)\n\nHay dos puntos a tener en cuenta:\n\n- **Adjudicación muy inferior al presupuesto:** el proceso está adjudicado a la Cooperativa de Trabajo Asociado Siglo XXI por $1.217.527.123, alrededor del 2,3 % del presupuesto oficial. Una diferencia tan grande es inusual y conviene verificarla en SECOP antes de usarla como referencia de precios.\n- **Alcance de la búsqueda:** la consulta devolvió 20 procesos, así que este resultado es el máximo solo dentro de esos registros, no de todo el SECOP II.",
+   "answer": "El proceso con mayor presupuesto oficial de los resultados es:\n\n- **Referencia:** LP-DT-CAU-003-2019 (ID CO1.REQ.976985)\n- **Entidad:** INVIAS, Dirección Territorial Cauca\n- **Objeto:** Mantenimiento rutinario de vías a cargo del INVIAS en la Dirección Territorial Cauca\n- **Modalidad:** Licitación pública de obra pública, publicado el 30/09/2019\n- **Presupuesto oficial (precio base):** $53.520.784.298\n\nHay una inconsistencia que conviene revisar: el proceso figura como adjudicado a la Cooperativa de Trabajo Asociado Siglo XXI por **$1.217.527.123**, un valor muy inferior al presupuesto. Puede deberse a un error de registro, a un precio base que agrupa varios frentes o a una adjudicación parcial, pero los datos disponibles no permiten confirmarlo.\n\nLa búsqueda devolvió 20 procesos, así que el resultado se limita a esa muestra. Además, el proceso de AGROSAVIA (CO1.REQ.6622657) tiene presupuesto de $0, lo que también es un dato inconsistente.",
    "tool_usage": 1,
    "correct_answer": 1,
-   "input_tokens": 13744,
-   "output_tokens": 809,
-   "cost_usd": 0.0017789,
-   "latency_s": 6.162,
+   "input_tokens": 13741,
+   "output_tokens": 777,
+   "cost_usd": 0.0017626,
+   "latency_s": 5.212,
    "error": null
   },
   {
@@ -144,13 +144,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "Encontré **2 procesos de licitación pública** en la búsqueda (sin filtros de fecha ni ubicación):\n\n1. **FDLS-LP-098-2019**, Alcaldía Local de Sumapaz (Bogotá)\n   - Objeto: conservación de puentes sobre corrientes de agua en la localidad de Sumapaz (obra, precios unitarios fijos).\n   - Presupuesto base: $600.000.000. Plazo: 5 meses.\n   - Publicado el 29/04/2019. Estado: en **evaluación**, sin adjudicar.\n\n2. **LP-DT-CAU-003-2019**, INVIAS, Dirección Territorial Cauca\n   - Objeto: mantenimiento rutinario de vías a cargo de INVIAS en el Cauca (obra).\n   - Presupuesto base: $53.520.784.298. Plazo: 33 meses.\n   - Publicado el 30/09/2019. Estado: **adjudicado** a Cooperativa de Trabajo Asociado Siglo XXI por $1.217.527.123, con 51 respuestas al procedimiento.\n\n**Observaciones:**\n- Ambos procesos son de 2019, así que probablemente ya no están abiertos a presentación de ofertas. Si buscas oportunidades vigentes, puedo filtrar por fecha reciente.\n- En el caso de INVIAS, el valor adjudicado es unos 44 veces menor que el presupuesto base. Conviene verificar ese dato en SECOP antes de usarlo como referencia.\n- El promedio de presupuesto que devuelve la búsqueda (~$27.000 millones) está sesgado por el proceso de INVIAS, así que no es representativo.\n\n¿Quieres que busque licitaciones recientes, por ciudad, sector o rango de presupuesto?",
+   "answer": "Encontré **2 procesos de licitación pública** en la búsqueda:\n\n1. **FDLS-LP-098-2019** (Alcaldía Local de Sumapaz, Bogotá)\n   - Objeto: conservación de puentes sobre corrientes de agua en la localidad de Sumapaz (obra, precios unitarios fijos).\n   - Presupuesto base: $600.000.000. Duración: 5 meses.\n   - Publicado el 29/04/2019. Estado: en evaluación, sin adjudicar, sin respuestas registradas.\n\n2. **LP-DT-CAU-003-2019** (INVIAS, Dirección Territorial Cauca)\n   - Objeto: mantenimiento rutinario de vías a cargo del INVIAS en el Cauca (obra).\n   - Presupuesto base: $53.520.784.298. Duración: 33 meses.\n   - Publicado el 30/09/2019. Estado: adjudicado a la Cooperativa de Trabajo Asociado Siglo XXI por $1.217.527.123, con 51 respuestas al procedimiento.\n   - Advertencia: el valor adjudicado es unas 44 veces menor que el presupuesto base. Puede responder a un proceso con varios ítems o a un error de registro, así que conviene verificarlo en SECOP antes de usar este dato.\n\nAmbos procesos son de 2019, así que probablemente no están abiertos a presentación de ofertas. La búsqueda devolvió solo dos registros, por lo que no es un listado exhaustivo. Si quieres, puedo filtrar por ciudad, departamento, entidad o rango de presupuesto, o buscar licitaciones más recientes con un rango de fechas.",
    "tool_usage": 1,
    "correct_answer": 1,
-   "input_tokens": 3960,
-   "output_tokens": 921,
-   "cost_usd": 0.0008565,
-   "latency_s": 6.596,
+   "input_tokens": 3944,
+   "output_tokens": 833,
+   "cost_usd": 0.0008109,
+   "latency_s": 5.242,
    "error": null
   },
   {
@@ -159,13 +159,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "El presupuesto promedio es **$120.120.571 COP**, calculado sobre **3 procesos** de entidades de Antioquia que devolvió la búsqueda (total de $360.361.713).\n\n| Referencia | Entidad | Precio base | Observación |\n|---|---|---|---|\n| OC10-2494-2025 | ESE Bellosalud (Bello) | $4.260.200 | Régimen especial, suministros |\n| SA-004-2023 | INDER Medellín | $270.101.513 | **Duración de 0 días**, dato inconsistente |\n| 5308/SASP01/2023 | Alcaldía de Girardota | $86.000.000 | Es una **enajenación** (venta de una retroexcavadora), no una compra |\n\nConsideraciones para interpretar el promedio:\n- El promedio está muy influido por el proceso del INDER ($270 M). Sin él, el promedio de los otros dos sería de unos $45 M, así que conviene mirar la mediana o cada caso por separado.\n- El proceso de Girardota es una venta de bienes, así que no es comparable con procesos de contratación de compra o servicios.\n- La búsqueda solo filtró por departamento. Si quieres un promedio representativo, podemos acotar por modalidad, tipo de contrato o rango de fechas, o aumentar el límite de resultados, porque con 3 procesos la muestra es muy pequeña.",
+   "answer": "El presupuesto promedio de los procesos encontrados en Antioquia es **$120.120.571**, sobre 3 procesos con un total de **$360.361.713**.\n\n| Referencia | Entidad | Precio base | Observación |\n|---|---|---|---|\n| OC10-2494-2025 | ESE Bellosalud (Bello) | $4.260.200 | Régimen especial, suministros |\n| SA-004-2023 | Inder Medellín | $270.101.513 | Subasta inversa, en evaluación |\n| 5308/SASP01/2023 | Alcaldía de Girardota | $86.000.000 | Es una venta de un bien, no una compra |\n\nEl promedio está distorsionado por el proceso del Inder Medellín, que es mucho mayor que los otros dos. Además, el proceso SA-004-2023 registra una duración de 0 días, un dato inconsistente que conviene verificar en SECOP II. La búsqueda devolvió solo 3 registros, así que este promedio no representa al conjunto de procesos de Antioquia; si quieres una cifra más representativa, puedo filtrar por modalidad, ciudad o rango de fechas.",
    "tool_usage": 1,
    "correct_answer": 1,
-   "input_tokens": 4400,
-   "output_tokens": 892,
-   "cost_usd": 0.000886,
-   "latency_s": 5.497,
+   "input_tokens": 4399,
+   "output_tokens": 719,
+   "cost_usd": 0.0007994,
+   "latency_s": 4.45,
    "error": null
   },
   {
@@ -174,31 +174,28 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "Encontré **2 procesos** de entidades de Santander en la búsqueda. Ojo: la búsqueda solo devuelve lo que coincide con el filtro de departamento, así que puede no ser el total real del departamento.\n\n**El más reciente:** Alcaldía de Floridablanca, referencia **FLO-INFRA-SA-MC-007-2025** (publicado el 30/12/2025).\n- Objeto: adecuación y mantenimiento de algunas instalaciones del Palacio Municipal.\n- Modalidad: Selección Abreviada de Menor Cuantía (obra).\n- Presupuesto base: $305.813.941. Estado: adjudicado a CONSTRUOBRAS ISAVAL S.A.S. por $305.644.297.\n\n**El otro:** Municipio de Piedecuesta, referencia **SINF-CPS-050-23** (publicado el 14/02/2023).\n- Objeto: servicios profesionales de ingeniero civil para la Secretaría de Infraestructura.\n- Contratación directa, presupuesto de $12.000.000, duración de 3 meses.\n- Dato inconsistente: el estado es \"Seleccionado\", pero figura como no adjudicado, sin proveedor definido y con valor de adjudicación de $0. Conviene verificarlo directamente en SECOP II.",
+   "answer": "En la búsqueda aparecen **2 procesos** de entidades de Santander, con un presupuesto total de $317.813.941.\n\nEl **más reciente** es:\n- **Ref. FLO-INFRA-SA-MC-007-2025**, Alcaldía de Floridablanca. Selección Abreviada de Menor Cuantía para adecuación y mantenimiento de instalaciones del Palacio Municipal. Publicado el 30/12/2025. Presupuesto base: $305.813.941. Estado: adjudicado a Construobras Isaval S.A.S. por $305.644.297.\n\nEl otro es:\n- **Ref. SINF-CPS-050-23**, Municipio de Piedecuesta. Contratación directa de un ingeniero civil por prestación de servicios, publicado el 14/02/2023. Presupuesto: $12.000.000, duración 3 meses. Su estado figura como \"Seleccionado\", pero aparece \"adjudicado: No\" y proveedor \"No Definido\", así que conviene verificarlo en SECOP II.\n\nEsta búsqueda solo recoge los registros que devuelve la herramienta, así que no garantiza que sean todos los procesos de Santander.",
    "tool_usage": 1,
    "correct_answer": 1,
-   "input_tokens": 4025,
-   "output_tokens": 760,
-   "cost_usd": 0.0007825,
-   "latency_s": 4.454,
+   "input_tokens": 4024,
+   "output_tokens": 653,
+   "cost_usd": 0.0007289,
+   "latency_s": 4.17,
    "error": null
   },
   {
    "id": "R12",
    "question": "¿Qué proceso de INVIAS corresponde a la Dirección Territorial Cauca?",
    "tools_used": [
-    "search_processes",
-    "search_processes",
-    "search_processes",
     "search_processes"
    ],
-   "answer": "Encontré un proceso de la Dirección Territorial Cauca de INVIAS:\n\n- **Referencia:** LP-DT-CAU-003-2019 (ID CO1.REQ.976985)\n- **Objeto:** Mantenimiento rutinario de vías a cargo del INVIAS, Dirección Territorial Cauca (producto: vía primaria mantenida).\n- **Modalidad:** Licitación pública, obra pública\n- **Estado:** Adjudicado a COOPERATIVA DE TRABAJO ASOCIADO SIGLO XXI\n- **Publicación:** 30/09/2019; 51 respuestas al procedimiento\n- **Ciudad de la unidad:** Cali\n\n**Inconsistencia a verificar:** el precio base es de $53.520.784.298, pero el valor total adjudicado es de $1.217.527.123. La diferencia es muy grande (cerca del 98 %). Puede deberse a un error de carga, a que el precio base incluye varias etapas o vigencias, o a una adjudicación parcial. Conviene revisar el expediente en SECOP antes de usar estas cifras.\n\nAdemás, la búsqueda por texto \"Cauca\" no devolvió resultados, porque el filtro de departamento se refiere a la ubicación de la entidad (Bogotá) y no a donde se ejecuta el contrato. Por eso solo encontré este proceso al buscar por entidad. Si hay otros procesos de esa Dirección Territorial, podría buscarlos por ciudad (Cali) o por palabras clave del objeto.",
+   "answer": "El proceso que corresponde a la Dirección Territorial Cauca de INVIAS es:\n\n- **Referencia:** LP-DT-CAU-003-2019 (ID CO1.REQ.976985)\n- **Modalidad:** Licitación pública, obra pública\n- **Objeto:** Mantenimiento rutinario de vías a cargo de la Dirección Territorial Cauca (vía primaria mantenida)\n- **Publicación:** 30/09/2019; recepción de ofertas: 11/10/2019\n- **Plazo:** 33 meses\n- **Estado:** Adjudicado a COOPERATIVA DE TRABAJO ASOCIADO SIGLO XXI, por $1.217.527.123\n- **Presupuesto base:** $53.520.784.298\n\nHay una inconsistencia que conviene verificar: el valor adjudicado es cerca del 2,3 % del precio base. Puede deberse a un error de carga en los datos o a una diferencia real entre el presupuesto y la adjudicación, pero con esta información no puedo determinarlo. Recomiendo revisar el expediente en SECOP II: https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.943665",
    "tool_usage": 1,
    "correct_answer": 1,
-   "input_tokens": 7777,
-   "output_tokens": 1119,
-   "cost_usd": 0.0013372,
-   "latency_s": 8.596,
+   "input_tokens": 3393,
+   "output_tokens": 646,
+   "cost_usd": 0.0006623,
+   "latency_s": 5.217,
    "error": null
   },
   {
@@ -208,13 +205,13 @@
     "search_processes",
     "search_processes"
    ],
-   "answer": "No encontré el proceso **LP-DT-CAU-003-2019** en la base de datos a la que tengo acceso. Busqué por la referencia completa y también por \"CAU-003\" con fechas de publicación en 2019, y no hubo resultados.\n\nPor eso no puedo darte el número de ofertas ni el adjudicatario. No voy a estimar esos datos.\n\nPara avanzar, puedes:\n- Verificar la referencia exacta en el SECOP II (a veces cambia el formato, por ejemplo con espacios, guiones distintos o un año diferente).\n- Decirme la entidad contratante, la ciudad o el departamento, y buscaré procesos de licitación de esa entidad en 2019.\n- Darme el objeto del contrato o palabras clave de su descripción, para buscar por texto.",
+   "answer": "No encontré el proceso LP-DT-CAU-003-2019 en el SECOP II con las herramientas disponibles. Busqué por la referencia exacta y también por \"CAU-003\" limitado a publicaciones de 2019, y ninguna de las dos búsquedas devolvió resultados.\n\nPor eso no puedo indicar el número de ofertas recibidas ni el adjudicatario. No voy a suponer ninguna cifra.\n\nPara avanzar, podrías:\n- Verificar la referencia exacta en el documento o en la página del proceso (a veces el formato cambia, por ejemplo \"LP-DT-CAU-003-2019\" frente a otra numeración).\n- Decirme la entidad contratante, la ciudad o el departamento, o el objeto del contrato, y buscaré por esos criterios.\n- Revisar directamente el cronograma y el acta de adjudicación en SECOP II, que es donde suelen publicarse el número de ofertas y el adjudicatario.",
    "tool_usage": 1,
    "correct_answer": 0,
-   "input_tokens": 4599,
-   "output_tokens": 572,
-   "cost_usd": 0.0007459,
-   "latency_s": 5.053,
+   "input_tokens": 4635,
+   "output_tokens": 648,
+   "cost_usd": 0.0007875,
+   "latency_s": 6.182,
    "error": null
   },
   {
@@ -224,13 +221,13 @@
     "search_processes",
     "search_processes"
    ],
-   "answer": "No encontré el proceso SA-004-2023. Probé buscar la referencia completa \"SA-004-2023\" y la variante \"SA-004\", y ninguna devolvió resultados. Por eso no puedo indicar su plazo de ejecución.\n\nPara ubicarlo, puedes indicarme:\n- El nombre de la entidad contratante o el departamento/ciudad.\n- Una palabra clave del objeto del contrato.\n- La modalidad o el rango de fechas de publicación.\n\nCon esos datos vuelvo a buscarlo y, si aparece, te doy el plazo y la referencia exacta del proceso.",
+   "answer": "No encontré el proceso **SA-004-2023** en el SECOP II. Busqué la referencia completa y también \"004-2023\", y ninguna de las dos devolvió resultados, así que no puedo informar su plazo de ejecución.\n\nPara ubicarlo, podrías:\n- Verificar la referencia exacta (el número puede tener otro formato, por ejemplo con el prefijo de la entidad o con un año distinto).\n- Indicarme la entidad contratante, la ciudad o el departamento, o una palabra clave del objeto del contrato, y buscaré por esos filtros.",
    "tool_usage": 1,
    "correct_answer": 0,
-   "input_tokens": 4477,
-   "output_tokens": 436,
-   "cost_usd": 0.0006657,
-   "latency_s": 4.117,
+   "input_tokens": 4487,
+   "output_tokens": 435,
+   "cost_usd": 0.0006662,
+   "latency_s": 5.325,
    "error": null
   },
   {
@@ -239,13 +236,13 @@
    "tools_used": [
     "search_processes"
    ],
-   "answer": "El proceso de Agrosavia que encontré tiene **presupuesto de $0**, lo que parece un dato incompleto o incorrecto, no un valor real.\n\n- **Referencia:** 135116 (ID CO1.REQ.6622657)\n- **Objeto:** Catálogo de elementos de protección personal (EPP) para el Centro de Investigación Obonuco (Pasto)\n- **Modalidad:** Contratación régimen especial, tipo Suministros\n- **Publicación:** 6 de agosto de 2024\n- **Duración:** 6 meses\n- **Estado:** Publicado, sin adjudicar, sin respuestas al procedimiento\n\nRecomiendo verificar el precio base directamente en el SECOP II (https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.6507167). Si quieres, puedo buscar otros procesos de Agrosavia con un texto de descripción o un rango de fechas distinto.",
+   "answer": "El proceso de Agrosavia que encontré tiene un **presupuesto de $0**, lo que parece un dato inconsistente o incompleto, así que no puedo darte una cifra real.\n\n- **Referencia:** 135116 (ID CO1.REQ.6622657)\n- **Objeto:** Catálogo de elementos de protección personal (EPP) para el Centro de Investigación Obonuco (Pasto)\n- **Modalidad:** Contratación régimen especial, suministros\n- **Publicado:** 6 de agosto de 2024, estado \"Publicado\", sin adjudicar\n- **Duración:** 6 meses\n\nConviene revisar el proceso directamente en SECOP II para confirmar el precio base, porque puede que no esté publicado en el sistema o que el campo esté mal registrado.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 3288,
-   "output_tokens": 491,
-   "cost_usd": 0.0005743,
-   "latency_s": 4.042,
+   "output_tokens": 397,
+   "cost_usd": 0.0005273,
+   "latency_s": 3.934,
    "error": null
   },
   {
@@ -253,43 +250,43 @@
    "question": "¿Nuestro capital de trabajo alcanza el 40 % del presupuesto del proceso FLO-INFRA-SA-MC-007-2025?",
    "tools_used": [
     "search_processes",
-    "compute_financial_indicators",
     "search_processes",
-    "search_processes"
+    "search_processes",
+    "compute_financial_indicators"
    ],
-   "answer": "No pude encontrar el proceso **FLO-INFRA-SA-MC-007-2025** en el SECOP II. Las búsquedas por la referencia completa, por \"FLO-INFRA\" y por \"MC-007-2025\" no devolvieron resultados. Tampoco tengo su presupuesto, así que no puedo calcular el porcentaje directamente.\n\nLo que sí sabemos:\n\n- **Nuestro capital de trabajo es de $182.000.000** (estados financieros al 31/12/2025).\n- Para que cubra exactamente el 40 %, el presupuesto del proceso tendría que ser de **$455.000.000** ($182 M ÷ 0,40).\n  - Si el presupuesto es **menor** a $455 M, el capital de trabajo cubre más del 40 %.\n  - Si es **mayor**, cubre menos.\n\nPara darte la respuesta exacta, necesito una de estas opciones:\n\n1. El presupuesto oficial del proceso, o\n2. Una referencia alternativa (el número de proceso en SECOP II, el nombre de la entidad o la ciudad), para poder buscarlo de otra forma.",
+   "answer": "No puedo responder la pregunta todavía porque no encuentro el proceso FLO-INFRA-SA-MC-007-2025.\n\n**Búsqueda:**\n- Por la referencia completa (\"FLO-INFRA-SA-MC-007-2025\"): 0 resultados.\n- Por el fragmento \"MC-007-2025\": 0 resultados.\n- Por la entidad \"FLO-INFRA\": 0 resultados.\n\nPuede que el proceso no esté indexado en la herramienta, que la referencia esté escrita de otra forma o que la entidad se llame diferente. Si me indica la entidad, la ciudad o el departamento, o el objeto del contrato, lo busco de nuevo.\n\n**Lo que sí puedo confirmar:** nuestro capital de trabajo es de **$182.000.000** (estados financieros al 31/12/2025). Con ese dato, el 40 % del presupuesto del proceso sería el umbral. Si el presupuesto es **P**, la pregunta se cumple cuando 182.000.000 ≥ 0,40 × P, es decir, cuando **P ≤ $455.000.000**. Para confirmar el porcentaje exacto, necesito el presupuesto oficial del proceso.",
    "tool_usage": 1,
    "correct_answer": 0,
-   "input_tokens": 5202,
-   "output_tokens": 884,
-   "cost_usd": 0.0009622,
-   "latency_s": 6.076,
+   "input_tokens": 7270,
+   "output_tokens": 995,
+   "cost_usd": 0.0012245,
+   "latency_s": 7.094,
    "error": null
   },
   {
    "id": "R17",
    "question": "¿Qué es el SECOP II?",
    "tools_used": [],
-   "answer": "El SECOP II (Sistema Electrónico de Contratación Pública) es la plataforma transaccional oficial de Colombia para la contratación pública. Administrada por Colombia Compra Eficiente, permite a las entidades estatales publicar procesos, recibir ofertas y adjudicar contratos en línea, y a los proveedores buscar oportunidades, presentar propuestas y gestionar sus contratos.\n\nEs la evolución del SECOP I, que funcionaba principalmente como portal de publicidad. Con el SECOP II, la contratación se gestiona de forma electrónica de principio a fin, y cualquier persona puede consultar la información pública de los procesos.",
+   "answer": "El SECOP II (Sistema Electrónico de Contratación Pública) es la plataforma transaccional de Colombia donde las entidades estatales publican sus procesos de contratación y donde los proveedores pueden consultarlos, presentar ofertas y firmar contratos en línea. Lo administra Colombia Compra Eficiente y funciona como un espacio de compra pública electrónica: las entidades publican pliegos, cronogramas y adendas, y los oferentes participan a través de la misma plataforma.\n\nEs la versión transaccional que reemplazó al SECOP I, que era principalmente informativo. Cualquier persona puede consultar los procesos públicos; para participar como oferente, la empresa debe registrarse en la plataforma y, para la mayoría de los procesos, estar inscrita en el RUP (Registro Único de Proponentes).",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 1306,
-   "output_tokens": 229,
-   "cost_usd": 0.0002451,
-   "latency_s": 2.254,
+   "output_tokens": 288,
+   "cost_usd": 0.0002746,
+   "latency_s": 2.239,
    "error": null
   },
   {
    "id": "R18",
    "question": "¿Qué diferencia hay entre una licitación pública y una contratación directa?",
    "tools_used": [],
-   "answer": "**Licitación pública** es la modalidad general de selección en Colombia. Cualquier interesado puede presentar oferta, bajo pliegos de condiciones publicados, con evaluación por criterios objetivos y adjudicación al mejor oferente. Su regla general está en la Ley 80 de 1993 y la Ley 1150 de 2007, y su desarrollo está en el Decreto 1082 de 2015.\n\n**Contratación directa** es la excepción. La entidad contrata con un proveedor específico sin convocatoria competitiva, solo cuando se configura una causal legal. Entre las más comunes están:\n- Prestación de servicios profesionales y de apoyo a la gestión.\n- Contratos interadministrativos.\n- Urgencia manifiesta.\n- Arrendamiento o adquisición de inmuebles.\n- Otras causales expresamente previstas en la norma.\n\n**Diferencias prácticas para tu empresa:**\n- **Competencia:** en la licitación compiten varios oferentes; en la directa, normalmente no hay competencia.\n- **Requisitos y plazos:** la licitación exige pliegos, cronogramas y plazos mínimos de publicación y presentación; la directa es más ágil y con menos formalidades.\n- **Oportunidad de acceso:** en la licitación puedes presentar oferta si cumples los requisitos habilitantes; en la directa, generalmente solo es posible si la entidad te invita o te elige por una causal concreta.\n- **Transparencia:** ambas deben publicarse en SECOP II, pero la licitación ofrece más visibilidad y control competitivo.\n\nSi quieres, puedo buscar en SECOP II procesos de licitación o de",
+   "answer": "**Licitación pública** es la regla general en Colombia. Cualquier interesado puede presentar oferta, se publican los pliegos y se evalúan las propuestas con criterios objetivos. Es un proceso competitivo y formal, con plazos y etapas definidos (Ley 80 de 1993, Ley 1150 de 2007 y Decreto 1082 de 2015).\n\n**Contratación directa** es la excepción. La entidad contrata con un proveedor determinado sin convocatoria abierta, solo cuando se configura una de las causales legales, como:\n- Urgencia manifiesta.\n- Contratos interadministrativos.\n- Prestación de servicios profesionales y de apoyo a la gestión.\n- Bienes o servicios de proveedor único.\n- Contratos de empréstito, entre otros.\n\n**Diferencias principales:**\n\n| Aspecto | Licitación pública | Contratación directa |\n|---|---|---|\n| Competencia | Abierta, con pluralidad de oferentes | Limitada o nula; se invita o se elige a un contratista |\n| Regla | General | Excepcional, solo por causal legal |\n| Procedimiento | Pliegos, cronograma, evaluación y adjudicación formal | Más simple, con menos etapas |\n| Control | Mayor transparencia y control de la competencia | Mayor riesgo de discrecionalidad, por lo que exige justificar la causal |\n\nPara tu empresa, esto significa que en una licitación compites con otros oferentes según los requisitos habilitantes y los criterios de evaluación. En una contratación directa, normalmente no hay una convocatoria a la que postularte, salvo que la entidad invite a varios proveedores. Si me indicas el tipo de proceso que te interesa, puedo buscar procesos abiertos en el SECOP II para ver cómo se presentan en la práctica.",
    "tool_usage": 1,
    "correct_answer": 1,
    "input_tokens": 1320,
-   "output_tokens": 1024,
-   "cost_usd": 0.000644,
-   "latency_s": 22.811,
+   "output_tokens": 801,
+   "cost_usd": 0.0005325,
+   "latency_s": 5.184,
    "error": null
   }
  ]

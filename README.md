@@ -93,7 +93,8 @@ python app.py                                            # Gradio UI (public lin
 
 ## Results
 
-All runs with `anthropic:claude-haiku-5-5` on 2026-10-28. Full analysis in `docs/workshop1_report.md`.
+Numbers from the executed notebook (`secop_agent_colab.ipynb`, outputs saved), `anthropic:claude-haiku-5-5`,
+2026-10-28. Full analysis in `docs/workshop1_report.md`.
 
 **Q&A agent, configuration A vs. B** (18 reference questions, `results/qa_comparison.md`):
 
@@ -101,21 +102,22 @@ All runs with `anthropic:claude-haiku-5-5` on 2026-10-28. Full analysis in `docs
 |---|---|---|
 | Correct answer (LLM judge) | 83.3 % | **100.0 %** |
 | Correct tool usage | 100.0 % | 100.0 % |
-| Total cost | USD 0.012957 | **USD 0.012345** |
-| Cost per correct answer | USD 0.000864 | **USD 0.000686** |
-| Latency p50 / p95 | 4.29 s / 20.22 s | **2.73 s / 4.52 s** |
+| Total cost | USD 0.012252 | USD 0.012395 |
+| Cost per correct answer | USD 0.000817 | **USD 0.000689** |
+| Latency p50 / p95 | 4.05 s / 6.32 s | **3.01 s / 3.69 s** |
 
-B is the only configuration that reaches 85 %, and it is also the cheapest and fastest.
+B is the only configuration that reaches 85 %. Its total cost is practically the same as A's (+1.2 %), it
+costs less per correct answer and it is faster.
 
 **Eligibility agent, the 20 repository tenders** (`results/eligibility_processes.md`):
 
 | Team | Repository | Tenders | Accuracy vs. key | Total cost | Mean cost / tender | p50 latency |
 |---|---|---|---|---|---|---|
-| `estebangzam` | <https://github.com/EstebanGZam/taller_agente> | 20 | **20/20** | **USD 0.042274** | USD 0.002114 | 12.8 s |
+| `estebangzam` | <https://github.com/EstebanGZam/taller_agente> | 20 | **20/20** | **USD 0.044076** | USD 0.002204 | 13.1 s |
 
 Verdicts: 6 `ELIGIBLE` (03, 07, 08, 11, 14, 15), 2 `NOT_ELIGIBLE` (13, 18), 12 `NOT_APPLICABLE`. The
-LangSmith evaluation on the same tenders (`eligibility-haiku-v3-537350bb`) gives verdict accuracy 1.00,
-requirement extraction 0.954 and tool usage 1.00.
+LangSmith evaluation on the same tenders (`eligibility-haiku-16b096ee`) gives verdict accuracy 1.00,
+requirement extraction 0.95 and tool usage 1.00.
 
 ## Engineering notes
 
