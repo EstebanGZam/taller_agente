@@ -1,7 +1,7 @@
 # LangSmith evidence
 
 Generated from the LangSmith API on 2026-10-28 (workspace of the team `estebangzam`). The links open only
-for members of the workspace; screenshots of the same views are in this folder when available.
+for members of the workspace; screenshots of the same views are in this folder (`07_` to `10_`).
 
 ## Experiments (Datasets & Experiments)
 

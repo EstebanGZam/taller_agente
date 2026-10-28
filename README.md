@@ -122,7 +122,8 @@ requirement extraction 0.95 and tool usage 1.00.
 ## Evidence
 
 Screenshots of the frontend, taken from one real session on 2026-10-28 (`python app.py`, Claude Haiku 5.5,
-20/20 correct, USD 0.043817 for the 20 tenders), and the LangSmith data behind every run
+20/20 correct, USD 0.043817 for the 20 tenders), screenshots of the same runs in LangSmith, and the
+LangSmith data behind every run
 ([`docs/evidence/langsmith.md`](docs/evidence/langsmith.md): experiments with their feedback, tokens, cost
 and latency, and the full tool-call tree of one trace).
 
@@ -134,8 +135,14 @@ and latency, and the full tool-call tree of one trace).
 | [`04_detail_not_eligible.png`](docs/evidence/04_detail_not_eligible.png) | Tender 13, `NOT_ELIGIBLE`: working capital and experience fail |
 | [`05_detail_not_applicable.png`](docs/evidence/05_detail_not_applicable.png) | Tender 01, `NOT_APPLICABLE`: direct contracting, nothing to bid on |
 | [`06_follow_up_chat.png`](docs/evidence/06_follow_up_chat.png) | Follow-up question on tender 13, answered by the same agent with its memory |
+| [`07_langsmith_qa_compare_A_vs_B.jpg`](docs/evidence/07_langsmith_qa_compare_A_vs_B.jpg) | LangSmith: A vs. B on the 18 reference questions (feedback scores, latency, tokens, cost) |
+| [`08_langsmith_eligibility_experiment.jpg`](docs/evidence/08_langsmith_eligibility_experiment.jpg) | LangSmith: eligibility experiment on the 20 tenders (extraction 0.95, tool usage 1.00, verdict 1.00) |
+| [`09_langsmith_trace_tender_13.jpg`](docs/evidence/09_langsmith_trace_tender_13.jpg) | LangSmith: trace of tender 13 from the frontend, with the tools the agent chose and the tokens per model call |
+| [`10_langsmith_traces_tokens_cost_latency.jpg`](docs/evidence/10_langsmith_traces_tokens_cost_latency.jpg) | LangSmith: tracing project, latency, tokens and cost of every run |
 
 ![Results for the 20 tenders](docs/evidence/02_results_20_tenders.png)
+
+![LangSmith comparison of configurations A and B](docs/evidence/07_langsmith_qa_compare_A_vs_B.jpg)
 
 ## Engineering notes
 
