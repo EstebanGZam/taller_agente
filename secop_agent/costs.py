@@ -125,7 +125,7 @@ class CostTracker(BaseCallbackHandler):
             "input_tokens": sum(c.usage.input_tokens for c in calls),
             "output_tokens": sum(c.usage.output_tokens for c in calls),
             "cache_read_tokens": sum(c.usage.cache_read_tokens for c in calls),
-            "cost_usd": round(sum(known_costs), 6),
+            "cost_usd": round(sum(known_costs), 8),
             # False when a model without a known rate was called, so cost_usd is a lower bound.
             "cost_complete": len(known_costs) == len(calls),
         }
