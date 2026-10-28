@@ -1,35 +1,132 @@
-# Taller 1 · Agente analista del SECOP: insumos
+# SECOP procurement analyst agent · Workshop 1
 
-## Contenido
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EstebanGZam/taller_agente/blob/main/secop_agent_colab.ipynb)
 
-| Archivo | Para qué sirve |
+An LLM agent that reads Colombian public procurement processes (SECOP II) and decides whether a company
+should bid, justifying each decision with data. Built with LangChain 1.x, traced and evaluated in
+LangSmith, with a Gradio frontend. Course: *Inteligencia Artificial 2026-2*, workshop 1
+("Herramientas y costo-calidad"); the starter code and data come from
+[armandoordonez/taller_agente](https://github.com/armandoordonez/taller_agente).
+
+## What the workshop asks for, and where it is answered
+
+| Requirement (`Reto_IA_2026.pdf`, course README, class notes) | Where |
 |---|---|
-| `datos/empresa.json` | Perfil de la empresa ficticia: RUP, códigos UNSPSC, estados financieros a 2025 y cuatro contratos de experiencia. |
-| `datos/secop_muestra.json` | Los 20 procesos de SECOP II que corresponden a los 20 PDF, con los nombres de campo de la API real. |
-| `datos/conjunto_referencia.json` | 18 preguntas comunes con su respuesta esperada y las herramientas que debería usar el agente. Es el conjunto del tablero de posiciones. |
-| `herramientas.py` | Las tres herramientas en Python puro: `buscar_procesos`, `consultar_empresa` y `calcular_indicadores`. |
-| `agente.py` | Agente base con LangChain, listo para ejecutar y mejorar. |
-| `evaluar.py` | Sube el conjunto de referencia a LangSmith y evalúa el agente con dos evaluadores. |
-| `.env.example` | Plantilla de variables de entorno (claves, modelo, modo de datos). |
+| Agent with at least two custom tools that decides when to call them | `secop_agent/qa_agent.py` (3 tools), `secop_agent/eligibility_agent.py` (4 tools) |
+| Traces of every run in LangSmith (tokens, cost, latency) | Every entry point traces to `LANGSMITH_PROJECT`; cost is also computed locally by `secop_agent/costs.py` |
+| Dataset of 15 to 20 questions | Course reference set (18 questions, `datos/conjunto_referencia.json`) and our eligibility key (20 tenders, `data/eligibility_key.json`) |
+| Comparison of two configurations: accuracy, cost, latency | `results/qa_comparison.md` (configuration A vs. B) |
+| At least 85% accuracy at the lowest cost | Configuration B, see [Results](#results) |
+| Decide whether the company should bid on each of the 20 tenders | `secop_agent/batch_eligibility.py` → `results/eligibility_processes.md` |
+| Frontend and input dataset to find the tenders the company can bid on | `app.py` / `secop_agent/web_app.py` (Gradio) |
+| Record name, repository and cost of the 20 tenders | Summary block of `results/eligibility_processes.md` |
 
-## Puesta en marcha
+`docs/specification.md` details the requirements and the design contract; `docs/workshop1_report.md` is the
+course report (design decisions, results and limitations).
 
-```bash
-python -m venv .venv && source .venv/bin/activate   # en Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.example .env        # y completen sus claves
-python herramientas.py      # prueba las herramientas sin modelo de lenguaje
-python agente.py "¿Qué procesos de licitación pública hay?"
-python evaluar.py "A-modelo-pequeno"
+## Architecture
+
+```mermaid
+flowchart LR
+    PDF[Tender PDF] --> X[extract_requirements<br/>LLM, structured output]
+    X --> S[select_similar_contracts<br/>LLM, one judgment per contract]
+    X --> V[verify_requirements<br/>deterministic rules]
+    S --> V
+    C[Company JSON] --> V
+    V --> R[Verdict + checks]
+    A[Eligibility agent<br/>decides which tools to call] -.-> X
+    A -.-> V
+    A --> E[Spanish explanation<br/>and follow-up chat]
 ```
 
-Luego cambien el modelo (`MODELO` en `.env`) o el prompt, ejecuten `python evaluar.py "B-..."` y comparen los dos experimentos en LangSmith.
+The model never decides the verdict. It only extracts what the tender requires and judges which past
+contracts are similar; `secop_agent/eligibility.py` compares those requirements with the company using
+plain arithmetic, so the result is reproducible and auditable. Verdicts: `ELIGIBLE`, `NOT_ELIGIBLE`,
+`NOT_APPLICABLE` (direct contracting or asset sale: nothing to bid on) and `MANUAL_REVIEW`.
 
-## Modos de datos
+## Repository layout
 
-- `MODO_DATOS=muestra` (por defecto): usa los 20 procesos locales. Es obligatorio para el conjunto de referencia, porque así todos los equipos se evalúan sobre los mismos datos.
-- `MODO_DATOS=api`: consulta datos.gov.co en vivo. Úsenlo para su propio conjunto de preguntas.
+```
+secop_agent/
+  settings.py             paths, .env loading, the single chat-model factory
+  costs.py                USD cost from token usage (CostTracker callback)
+  procurement_data.py     SECOP sample/API search, company profile, RUP financial indicators
+  qa_agent.py             Q&A agent, configurations A (course baseline) and B (improved)
+  evaluate_qa.py          LangSmith evaluation on the course reference set
+  compare_experiments.py  A vs. B comparison table
+  tender_documents.py     PDF reading, requirement extraction, similar-contract judgment
+  eligibility.py          deterministic verification and verdicts
+  eligibility_agent.py    eligibility agent with memory
+  batch_eligibility.py    the 20 tenders in one run, compared with the key
+  evaluate_eligibility.py LangSmith evaluation against the eligibility key
+  web_app.py              Gradio interface
+app.py                    launches the interface
+data/eligibility_key.json expected verdict and requirements for the 20 tenders (hand-built)
+datos/                    course data, unchanged: 20 PDFs, SECOP sample, companies, reference set
+results/                  generated reports and run logs
+tests/                    offline tests (no keys, no network)
+secop_agent_colab.ipynb   reproduces everything on Google Colab
+```
 
-## Qué deben mejorar los equipos
+## Setup
 
-El agente base funciona, pero es deliberadamente simple. Hay espacio para mejorar las descripciones de las herramientas, el prompt del sistema, el manejo de datos incompletos y la elección del modelo. La meta es al menos 85 % de precisión con el menor costo posible.
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+cp .env.example .env      # fill in ANTHROPIC_API_KEY, LANGSMITH_API_KEY, LANGSMITH_PROJECT, TEAM_NAME
+```
+
+Keys are read from `.env` (ignored by git) or, on Colab, from the notebook's secrets.
+
+## Commands
+
+```bash
+python -m pytest -q && ruff check .                      # offline checks
+python -m secop_agent.procurement_data                   # offline smoke test of the data tools
+AGENT_CONFIG=A python -m secop_agent.evaluate_qa A-baseline
+AGENT_CONFIG=B python -m secop_agent.evaluate_qa B-improved
+python -m secop_agent.compare_experiments A-baseline B-improved
+python -m secop_agent.batch_eligibility --company empresa_multiproposito.json
+python -m secop_agent.evaluate_eligibility eligibility-haiku
+python app.py                                            # Gradio UI (public link on Colab)
+```
+
+## Results
+
+All runs with `anthropic:claude-haiku-5-5` on 2026-10-28. Full analysis in `docs/workshop1_report.md`.
+
+**Q&A agent, configuration A vs. B** (18 reference questions, `results/qa_comparison.md`):
+
+| | A · course baseline | B · improved |
+|---|---|---|
+| Correct answer (LLM judge) | 83.3 % | **100.0 %** |
+| Correct tool usage | 100.0 % | 100.0 % |
+| Total cost | USD 0.012957 | **USD 0.012345** |
+| Cost per correct answer | USD 0.000864 | **USD 0.000686** |
+| Latency p50 / p95 | 4.29 s / 20.22 s | **2.73 s / 4.52 s** |
+
+B is the only configuration that reaches 85 %, and it is also the cheapest and fastest.
+
+**Eligibility agent, the 20 repository tenders** (`results/eligibility_processes.md`):
+
+| Team | Repository | Tenders | Accuracy vs. key | Total cost | Mean cost / tender | p50 latency |
+|---|---|---|---|---|---|---|
+| `estebangzam` | <https://github.com/EstebanGZam/taller_agente> | 20 | **20/20** | **USD 0.042274** | USD 0.002114 | 12.8 s |
+
+Verdicts: 6 `ELIGIBLE` (03, 07, 08, 11, 14, 15), 2 `NOT_ELIGIBLE` (13, 18), 12 `NOT_APPLICABLE`. The
+LangSmith evaluation on the same tenders (`eligibility-haiku-v3-537350bb`) gives verdict accuracy 1.00,
+requirement extraction 0.954 and tool usage 1.00.
+
+## Engineering notes
+
+- **Never pass `temperature`, `top_p` or `top_k`.** Claude Haiku 5.5 and API version 2026-10-21 reject
+  them with a 400; the course's original judge did, which is why its evaluators failed.
+- **All chat models are built by `settings.chat_model()`** with a 60 s timeout and 2 retries. Structured
+  output uses `function_calling`: `json_schema` requests hung for more than 90 s on Haiku 5.5.
+- **`LANGSMITH_AGENT_ID` / `LANGSMITH_AGENT_ENVIRONMENT`** silently disable tracing when set together with
+  `LANGSMITH_PROJECT`; `settings.load_environment()` removes them.
+- **PDF text and company JSON are untrusted data.** Prompts say so explicitly and the verdict is computed
+  outside the model, so an injected instruction cannot change it (workshop 4 goes deeper).
+- **Language.** Code, prompts and UI are in English. The course data (`datos/`, `empresa*.json`) and the
+  configuration A prompt keep their original Spanish text, and the agents answer in Spanish because the
+  reference answers and the judge compare Spanish text.
